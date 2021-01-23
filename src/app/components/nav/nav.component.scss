@@ -1,0 +1,171 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    >div:nth-of-type(1) {
+        position: fixed;
+        display: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: .5;
+        &.opened {
+            display: flex;
+        }
+    }
+    >div:nth-of-type(2) {
+        position: fixed;
+        display: none;
+        flex-direction: column;
+        justify-content: flex-end;
+        right: 0;
+        top: 0;
+        width: 90%;
+        height: 100%;
+        background-color: white;
+        &.opened {
+            display: flex;
+        }
+        >p {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: darkgrey;
+            text-align: center;
+        }
+        >ul {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+            max-height: calc(100% - 100px);
+            >li {
+                display: flex;
+                flex-direction: column;
+                border-top: 1px solid lightgrey;
+                >div {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 2rem;
+                    >div {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: flex-start;
+                        >p {
+                            font-size: 1.4rem;
+                            font-weight: 300;
+                            color: darkgrey;
+                            margin: 0 0 0 1rem;
+                        }
+                    }
+                }
+                >ul {
+                    display: none;
+                    flex-direction: column;
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0;
+                    >li {
+                        display: flex;
+                        flex-direction: row;
+                        >a {
+                            font-size: 1.4rem;
+                            font-weight: 300;
+                            color: rgba(darkgrey, 1);
+                            margin: 1rem 2rem;
+                        }
+                    }
+                }
+                &.opened {
+                    overflow: hidden;
+                    >div {
+                        box-shadow: 0 0 8px -5px black;
+                    }
+                    >ul {
+                        display: flex;
+                        overflow: auto;
+                    }
+                }
+            }
+        }
+    }
+    >span {
+        position: fixed;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        bottom: 5px;
+        right: 5%;
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        border: 1px solid darkgrey;
+        >p {
+            font-size: 1.6rem;
+            color: black;
+            margin: 0;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+     :host {
+        display: flex;
+        flex-direction: column;
+        >div:nth-of-type(1) {
+            display: none;
+        }
+        >div:nth-of-type(2) {
+            position: unset;
+            display: flex;
+            >p {
+                display: none;
+            }
+            >ul {
+                flex-direction: row;
+                >li {
+                    position: relative;
+                    border: 0;
+                    >div {
+                        margin: 1rem;
+                        padding: 0;
+                        >div {
+                            >p {
+                                margin: 0 1rem 0 .5rem;
+                            }
+                        }
+                    }
+                    >ul {
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        background-color: white;
+                        width: max-content;
+                        padding: 1rem 0;
+                        >li {
+                            >a {
+                                margin: .5rem 1rem .5rem 2rem;
+                            }
+                        }
+                    }
+                    &:hover {
+                        cursor: pointer;
+                        >ul {
+                            display: flex;
+                        }
+                    }
+                }
+            }
+        }
+        >span {
+            display: none;
+        }
+    }
+}

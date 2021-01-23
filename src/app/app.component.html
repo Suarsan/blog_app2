@@ -1,11 +1,13 @@
-<header>
-    <app-logo></app-logo>
-    <app-menu class="top"></app-menu>
-</header>
 <div>
-    <router-outlet></router-outlet>
+    <header>
+        <span>visitarlavera.es</span>
+        <div></div>
+        <nav [cities]="cities" [companionships]="companionships" [transports]="transports" [durations]="durations"></nav>
+    </header>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+    <footer>
+        <app-footer></app-footer>
+    </footer>
 </div>
-<footer>
-    <app-footer></app-footer>
-</footer>
-<app-menu class="bottom"></app-menu>

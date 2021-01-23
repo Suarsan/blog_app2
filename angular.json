@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "bloggraphql": {
+        "bloglavera": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -17,7 +17,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/bloggraphql/browser",
+                        "outputPath": "dist/bloglavera/browser",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "bloggraphql:build"
+                        "browserTarget": "bloglavera:build"
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "bloggraphql:build:production"
+                            "browserTarget": "bloglavera:build:production"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "bloggraphql:build"
+                        "browserTarget": "bloglavera:build"
                     }
                 },
                 "test": {
@@ -114,18 +114,18 @@
                     "builder": "@angular-devkit/build-angular:protractor",
                     "options": {
                         "protractorConfig": "e2e/protractor.conf.js",
-                        "devServerTarget": "bloggraphql:serve"
+                        "devServerTarget": "bloglavera:serve"
                     },
                     "configurations": {
                         "production": {
-                            "devServerTarget": "bloggraphql:serve:production"
+                            "devServerTarget": "bloglavera:serve:production"
                         }
                     }
                 },
                 "server": {
                     "builder": "@angular-devkit/build-angular:server",
                     "options": {
-                        "outputPath": "dist/bloggraphql/server",
+                        "outputPath": "dist/bloglavera/server",
                         "main": "server.ts",
                         "tsConfig": "tsconfig.server.json"
                     },
@@ -144,21 +144,21 @@
                 "serve-ssr": {
                     "builder": "@nguniversal/builders:ssr-dev-server",
                     "options": {
-                        "browserTarget": "bloggraphql:build",
-                        "serverTarget": "bloggraphql:server"
+                        "browserTarget": "bloglavera:build",
+                        "serverTarget": "bloglavera:server"
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "bloggraphql:build:production",
-                            "serverTarget": "bloggraphql:server:production"
+                            "browserTarget": "bloglavera:build:production",
+                            "serverTarget": "bloglavera:server:production"
                         }
                     }
                 },
                 "prerender": {
                     "builder": "@nguniversal/builders:prerender",
                     "options": {
-                        "browserTarget": "bloggraphql:build:production",
-                        "serverTarget": "bloggraphql:server:production",
+                        "browserTarget": "bloglavera:build:production",
+                        "serverTarget": "bloglavera:server:production",
                         "routes": [
                             "/"
                         ]
@@ -170,7 +170,7 @@
             }
         }
     },
-    "defaultProject": "bloggraphql",
+    "defaultProject": "bloglavera",
     "cli": {
         "analytics": false
     }

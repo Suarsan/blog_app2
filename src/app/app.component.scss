@@ -1,37 +1,39 @@
-@import '../colors';
 :host {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    >header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        >app-menu {
-            display: none;
-        }
-    }
     >div {
         display: flex;
         flex-direction: column;
-        flex-grow: 1;
+        >header {
+            display: flex;
+            flex-direction: column;
+            >span {
+                color: darkgrey;
+                text-align: center;
+                margin: .5rem 0;
+            }
+            >div {
+                border: 1px solid darkgrey;
+                height: 150px;
+            }
+        }
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 991px) {
      :host {
-        >header {
-            position: relative;
-            flex-direction: row;
-            justify-content: space-between;
-            width: 90%;
+        >div {
+            width: 991px;
             margin: 0 auto;
-            >app-menu {
-                display: flex;
-            }
         }
-        >app-menu {
-            display: none;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+     :host {
+        >div {
+            width: 1200px;
+            margin: 0 auto;
         }
     }
 }

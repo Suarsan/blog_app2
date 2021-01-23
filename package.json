@@ -1,5 +1,5 @@
 {
-    "name": "bloggraphql",
+    "name": "bloglavera",
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
@@ -8,10 +8,10 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "dev:ssr": "ng run bloggraphql:serve-ssr",
-        "serve:ssr": "node dist/bloggraphql/main.js",
-        "build:ssr": "ng build --prod && ng run bloggraphql:server:production",
-        "prerender": "ng run bloggraphql:prerender",
+        "dev:ssr": "ng run bloglavera:serve-ssr",
+        "serve:ssr": "node dist/bloglavera/main.js",
+        "build:ssr": "ng build --prod && ng run bloglavera:server:production",
+        "prerender": "ng run bloglavera:prerender",
         "postinstall": "ngcc"
     },
     "private": true,

@@ -5,29 +5,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpLink } from 'apollo-angular/http';
 import { InMemoryCache } from '@apollo/client/core';
 import { APOLLO_OPTIONS } from 'apollo-angular';
-import { GraphQLModule } from './graphql.module';
 import { AppComponent } from './app.component';
-import { LogoComponent } from './components/logo/logo.component';
-import { MenuComponent } from './components/menu/menu.component';
-import { CardDetailComponent } from './components/card-detail/card-detail.component';
+import {NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
-    LogoComponent,
-    CardDetailComponent,
+    NavComponent,
     FooterComponent,
     NotfoundComponent
   ],
   imports: [
     AppRoutingModule,
     HttpClientModule,
-    BrowserModule.withServerTransition({ appId: 'blographql' }),
-    BrowserTransferStateModule,
-    GraphQLModule
+    BrowserModule.withServerTransition({ appId: 'bloglavera' }),
+    BrowserTransferStateModule
   ],
   providers: [
     {
@@ -36,7 +31,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
         return {
           cache: new InMemoryCache(),
           link: httpLink.create({
-            uri: 'https://api.camisetasbasicas.online',
+            uri: environment.apiURL,
           }),
         };
       },

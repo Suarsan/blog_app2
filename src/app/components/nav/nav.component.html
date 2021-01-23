@@ -1,0 +1,66 @@
+<div [class.opened]="showMenu" (click)="toggleMenu(false)"></div>
+<div [class.opened]="showMenu">
+    <span></span>
+    <p>Planear mi viaje en función de...</p>
+    <ul>
+        <li [class.opened]="showing === 'cities'">
+            <div (click)="toggle('cities')">
+                <div>
+                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><rect width="16" height="16" fill="white" fill-opacity="0.01"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8 15.5517L8.43849 15.1688C12.1258 11.9491 14 9.1378 14 6.66663C14 3.16707 11.2686 0.666626 8 0.666626C4.73137 0.666626 2 3.16707 2 6.66663C2 9.1378 3.87421 11.9491 7.56151 15.1688L8 15.5517ZM8 13.7756C4.87107 10.9557 3.33333 8.56615 3.33333 6.66667C3.33333 3.93107 5.44274 2 8 2C10.5573 2 12.6667 3.93107 12.6667 6.66667C12.6667 8.56615 11.1289 10.9557 8 13.7756ZM8 3.33333C9.84095 3.33333 11.3333 4.82572 11.3333 6.66667C11.3333 8.50762 9.84095 10 8 10C6.15905 10 4.66667 8.50762 4.66667 6.66667C4.66667 4.82572 6.15905 3.33333 8 3.33333ZM6 6.66667C6 5.5621 6.89543 4.66667 8 4.66667C9.10457 4.66667 10 5.5621 10 6.66667C10 7.77124 9.10457 8.66667 8 8.66667C6.89543 8.66667 6 7.77124 6 6.66667Z" fill="darkgrey"/><mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="2" y="0" width="12" height="16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 15.5517L8.43849 15.1688C12.1258 11.9491 14 9.1378 14 6.66663C14 3.16707 11.2686 0.666626 8 0.666626C4.73137 0.666626 2 3.16707 2 6.66663C2 9.1378 3.87421 11.9491 7.56151 15.1688L8 15.5517ZM8 13.7756C4.87107 10.9557 3.33333 8.56615 3.33333 6.66667C3.33333 3.93107 5.44274 2 8 2C10.5573 2 12.6667 3.93107 12.6667 6.66667C12.6667 8.56615 11.1289 10.9557 8 13.7756ZM8 3.33333C9.84095 3.33333 11.3333 4.82572 11.3333 6.66667C11.3333 8.50762 9.84095 10 8 10C6.15905 10 4.66667 8.50762 4.66667 6.66667C4.66667 4.82572 6.15905 3.33333 8 3.33333ZM6 6.66667C6 5.5621 6.89543 4.66667 8 4.66667C9.10457 4.66667 10 5.5621 10 6.66667C10 7.77124 9.10457 8.66667 8 8.66667C6.89543 8.66667 6 7.77124 6 6.66667Z" fill="white"/></mask><g mask="url(#mask0)"></g></svg>
+                    <p>Qué pueblo visitar</p>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 6.07747L8.0387 3.03876L8.62796 3.62802L5 7.25598L1.37204 3.62802L1.96129 3.03877L5 6.07747Z" fill="darkgrey"/></svg>
+            </div>
+            <ul>
+                <li *ngFor="let city of cities">
+                    <a (click)="toggleMenu(false)" [routerLink]="['/' + city.slug]">{{ city.title }}</a>
+                </li>
+            </ul>
+        </li>
+        <li [class.opened]="showing === 'companionships'">
+            <div (click)="toggle('companionships')">
+                <div>
+                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0.666672 7.99996C0.666672 12.05 3.94992 15.3333 8 15.3333C12.0501 15.3333 15.3333 12.05 15.3333 7.99996C15.3333 3.94987 12.0501 0.666626 8 0.666626C3.94992 0.666626 0.666672 3.94987 0.666672 7.99996ZM14 7.99996C14 11.3137 11.3137 14 8.00001 14C4.6863 14 2.00001 11.3137 2.00001 7.99996C2.00001 4.68625 4.6863 1.99996 8.00001 1.99996C11.3137 1.99996 14 4.68625 14 7.99996ZM8.0214 12.6666C5.78308 12.6666 4.53763 11.4877 4.53763 9.33329V8.66663H11.4105L11.429 9.31432C11.4905 11.4763 10.2669 12.6666 8.0214 12.6666ZM10.0584 9.99996C9.90176 10.9303 9.27265 11.3333 8.02141 11.3333C6.77086 11.3333 6.12121 10.9268 5.9312 9.99996H10.0584ZM9.33334 5.33329H11.3333V6.66663H9.33334V5.33329ZM6.66667 5.33329H4.66667V6.66663H6.66667V5.33329Z" fill="darkgrey"/></svg>
+                    <p>Con quien iré</p>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 6.07747L8.0387 3.03876L8.62796 3.62802L5 7.25598L1.37204 3.62802L1.96129 3.03877L5 6.07747Z" fill="darkgrey"/></svg>
+            </div>
+            <ul>
+                <li *ngFor="let companionship of companionships">
+                    <a (click)="toggleMenu(false)" [routerLink]="['/' + companionship.slug]">{{ companionship.title }}</a>
+                </li>
+            </ul>
+        </li>
+        <li [class.opened]="showing === 'transports'">
+            <div (click)="toggle('transports')">
+                <div>
+                    <svg width="18" height="16" viewBox="0 0 18 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.03446 4.96311L3.86845 4.04611L5.22247 6.75414L3.55016 11.771C3.71897 11.8954 3.89724 12.0159 4.08356 12.1314C5.21268 10.0987 6.17698 9.30611 8.05945 9.30611C10.151 9.30611 11.9369 10.5904 12.4638 12.3654C12.7396 12.214 13.0016 12.0513 13.2458 11.8804C12.9291 11.4836 12.6703 11.0543 12.4524 10.5832C12.2172 10.0748 12.1574 9.8971 11.8173 8.79697C11.3167 7.17763 10.9513 6.81778 9.30355 6.81778H8.47412C7.1866 6.81778 5.98582 5.61699 5.98582 4.32948C5.98582 3.32781 5.21618 2.56507 3.48515 2.06172L2.03446 4.96311ZM3.43144 6.88142L2.24026 10.455C1.98316 10.0656 1.83868 9.67442 1.83868 9.30611H0.179819C0.179819 12.1882 4.47839 15.1121 8.47415 15.1121C12.4699 15.1121 16.7685 12.1882 16.7685 9.30611H15.1096C15.1096 9.77238 14.8781 10.2754 14.4796 10.7648C14.2766 10.4975 14.1065 10.2079 13.958 9.88686C13.7673 9.47448 13.7159 9.3218 13.4022 8.30704C13.2635 7.85853 13.116 7.46358 12.9488 7.1187C14.0749 6.61432 15.1626 6.74407 16.3084 7.50795L17.2286 6.12769C15.4775 4.96031 13.6575 4.84799 11.8932 5.79074C11.2799 5.35473 10.4621 5.15891 9.30355 5.15891H8.47412C8.10277 5.15891 7.64469 4.70083 7.64469 4.32948C7.64469 2.18574 5.93714 0.819697 2.83075 0.19842L1.83865 0V1.64538L0 5.32269L1.67488 6.99757L3.12659 6.27171L3.43144 6.88142ZM5.56958 12.8719C6.49091 13.2315 7.49509 13.4533 8.47415 13.4533C9.29339 13.4533 10.1302 13.298 10.9214 13.0366C10.6905 11.8763 9.51292 10.965 8.05945 10.965C6.97997 10.965 6.3842 11.4233 5.56958 12.8719Z" fill="darkgrey"/></svg>
+                    <p>Cómo me desplazaré</p>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 6.07747L8.0387 3.03876L8.62796 3.62802L5 7.25598L1.37204 3.62802L1.96129 3.03877L5 6.07747Z" fill="darkgrey"/></svg>
+            </div>
+            <ul>
+                <li *ngFor="let transport of transports">
+                    <a (click)="toggleMenu(false)" [routerLink]="['/' + transport.slug]">{{ transport.title }}</a>
+                </li>
+            </ul>
+        </li>
+        <li [class.opened]="showing === 'durations'">
+            <div (click)="toggle('durations')">
+                <div>
+                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="white"><rect width="16" height="16" fill="white" fill-opacity="0.01"/><path fill-rule="evenodd" clip-rule="evenodd" d="M7.99998 14.6667C11.6819 14.6667 14.6666 11.6819 14.6666 8.00004C14.6666 4.31814 11.6819 1.33337 7.99998 1.33337C4.31808 1.33337 1.33331 4.31814 1.33331 8.00004C1.33331 11.6819 4.31808 14.6667 7.99998 14.6667Z" stroke="darkgrey" stroke-width="2"/><path d="M8 4V8H11.3333" stroke="darkgrey" stroke-width="2"/></svg>
+                    <p>Cuántos días estaré</p>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 6.07747L8.0387 3.03876L8.62796 3.62802L5 7.25598L1.37204 3.62802L1.96129 3.03877L5 6.07747Z" fill="darkgrey"/></svg>
+            </div>
+            <ul>
+                <li *ngFor="let duration of durations">
+                    <a (click)="toggleMenu(false)" [routerLink]="['/' + duration.slug]">{{ duration.title }}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<span (click)="toggleMenu(true)" *ngIf="!showMenu">
+    <p>Menu</p>
+</span>
