@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { FeaturedReviewsComponent } from '../featured-reviews/featured-reviews.component';
+import { TileModule } from '../tile/tile.module';
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    FeaturedReviewsComponent
+    HomeComponent
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    TileModule
   ]
 })
 export class HomeModule { }

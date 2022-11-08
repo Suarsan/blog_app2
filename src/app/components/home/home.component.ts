@@ -1,14 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { PostDaoService } from 'src/app/dao/post-dao-services/post-dao-service/post-dao.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-home',
+  selector: 'home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  posts;
 
-  ngOnInit() {}
+  constructor(private postDaoService: PostDaoService) { }
 
+  ngOnInit() {
+    this._getPosts();
+  }
+
+  private _getPosts() {
+    this.postDaoService.getPostsByTag('home').pipe(
+      tap(post => this.posts = post['data']['getPostsByTag'])
+    ).subscribe();
+  }
 }

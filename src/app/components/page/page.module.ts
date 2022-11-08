@@ -3,25 +3,29 @@ import { CommonModule } from '@angular/common';
 
 import { PageRoutingModule } from './page-routing.module';
 import { PageComponent } from './page.component';
-import { PagePostComponent } from '../page-post/page-post.component';
-import { PageBrandComponent } from '../page-brand/page-brand.component';
-import { PageGlosaryComponent } from '../page-glosary/page-glosary.component';
-import { PageSponsoredComponent } from '../page-sponsored/page-sponsored.component';
-import { PageSomatotypeComponent } from '../page-somatotype/page-somatotype.component';
+import { PageCityComponent } from '../page-city/page-city.component';
+import { IndexModule } from '../index/index.module';
+import { EncodeuriModule } from '../../pipes/encodeuri.module';
+import { PageCompanionshipComponent } from '../page-companionship/page-companionship.component';
+import { PageSeasonComponent } from '../page-season/page-season.component';
+import { PageTransportComponent } from '../page-transport/page-transport.component';
+import { PageDaysComponent } from '../page-days/page-days.component';
 
 
 @NgModule({
   declarations: [
     PageComponent,
-    PagePostComponent,
-    PageBrandComponent,
-    PageGlosaryComponent,
-    PageSponsoredComponent,
-    PageSomatotypeComponent
+    PageCityComponent,
+    PageCompanionshipComponent,
+    PageTransportComponent,
+    PageSeasonComponent,
+    PageDaysComponent
   ],
   imports: [
     CommonModule,
-    PageRoutingModule
+    PageRoutingModule,
+    IndexModule,
+    EncodeuriModule
   ]
 })
 export class PageModule { }

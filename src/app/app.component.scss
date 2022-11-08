@@ -5,35 +5,15 @@
         display: flex;
         flex-direction: column;
         >header {
+            position: fixed;
+            top: 0;
+            left: 0;
             display: flex;
             flex-direction: column;
-            >span {
-                color: darkgrey;
-                text-align: center;
-                margin: .5rem 0;
-            }
+            width: 100%;
             >div {
-                border: 1px solid darkgrey;
-                height: 150px;
+                display: none;
             }
-        }
-    }
-}
-
-@media screen and (min-width: 991px) {
-     :host {
-        >div {
-            width: 991px;
-            margin: 0 auto;
-        }
-    }
-}
-
-@media screen and (min-width: 1200px) {
-     :host {
-        >div {
-            width: 1200px;
-            margin: 0 auto;
         }
     }
 }

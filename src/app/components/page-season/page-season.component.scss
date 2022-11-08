@@ -1,0 +1,195 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    >div:nth-of-type(1) {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 300px;
+        background-size: cover!important;
+        background-repeat: no-repeat!important;
+        background-position: center!important;
+        overflow: hidden;
+        >h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: lightgrey;
+            margin: 1rem;
+            >span {
+                font-size: 2.9rem;
+            }
+        }
+        >h2 {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: lightgrey;
+            margin: 0 1rem;
+            text-transform: uppercase;
+            letter-spacing: .25rem;
+        }
+    }
+    >div:nth-of-type(2) {
+        display: flex;
+        flex-direction: column;
+        >div {
+            display: flex;
+            flex-direction: column;
+            margin: 2rem;
+            h3 {
+                font-size: 2.75rem;
+                font-weight: 600;
+                margin: 2rem 0 1rem 0;
+            }
+            h4 {
+                font-size: 2.25rem;
+                font-weight: 500;
+                margin: 1rem 0 0 0;
+            }
+            >p {
+                font-size: 1.6rem;
+                font-weight: 400;
+                font-family: 'Maven Pro', sans-serif;
+                line-height: 2.5rem;
+                margin: 1rem 0s;
+            }
+            >strong {
+                font-size: 2.5rem;
+                font-weight: 600;
+                font-family: 'Maven Pro', sans-serif;
+                margin: 3rem 0;
+                line-height: 4rem;
+            }
+            >span {
+                position: relative;
+                font-size: 2rem;
+                font-weight: 400;
+                font-family: 'Maven Pro', sans-serif;
+                font-style: italic;
+                margin: 5rem 0 0 0;
+                padding: 2.5rem 0;
+                line-height: 3rem;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 15rem;
+                    height: .25rem;
+                    background-color: lightgrey;
+                }
+            }
+            >div {
+                display: flex;
+                flex-direction: row;
+                align-self: flex-start;
+                justify-content: space-around;
+                >img {
+                    width: min-content;
+                    max-width: calc(50% - 2rem);
+                    margin: 1rem;
+                }
+            }
+            >img {
+                width: 100%;
+                max-width: 100%;
+                align-self: center;
+                margin: 1rem 0;
+            }
+            iframe {
+                width: 100%;
+                height: auto;
+            }
+            ul.wikiloc {
+                list-style: none;
+                margin: 2rem;
+                padding: 0;
+                >li {
+                    margin: 0 0 2rem 0;
+                    >a {
+                        font-size: 1.6rem;
+                        font-weight: 400;
+                    }
+                    >div {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        >span {
+                            display: flex;
+                            flex-direction: row;
+                            font-size: 1.4rem;
+                            color: darkgray;
+                            margin: 0 0 0 2rem;
+                            >meter {
+                                width: 50px;
+                                margin: 0 0 0 .5rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 575px) {
+     :host {
+        >div:nth-of-type(1) {
+            >h1 {
+                margin: 0 4rem 2rem 4rem;
+            }
+            >h2 {
+                margin: 2rem 4rem 1rem 4rem;
+            }
+        }
+        >div:nth-of-type(2) {
+            display: flex;
+            flex-direction: column;
+            >div {
+                display: flex;
+                flex-direction: column;
+                >iframe {
+                    min-height: 500px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+     :host {
+        >div:nth-of-type(1) {
+            height: 400px;
+        }
+        >div:nth-of-type(2) {
+            display: flex;
+            flex-direction: row;
+            margin: 0 auto;
+            >div {
+                width: calc(100% - 250px);
+            }
+            >aside {
+                width: 250px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 991px) {
+     :host {
+        >div:nth-of-type(1) {
+            height: 500px;
+            >h1 {
+                font-size: 4rem;
+                margin: 0 8rem 2rem 8rem;
+            }
+            >h2 {
+                font-size: 1.8rem;
+                margin: 2rem 8rem 1rem 8rem;
+            }
+        }
+        >div:nth-of-type(2) {
+            width: 991px;
+            margin: 0 auto;
+        }
+    }
+}

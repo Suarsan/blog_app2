@@ -8,38 +8,24 @@ import { isPlatformServer } from '@angular/common';
 const POSTS = makeStateKey('posts');
 
 @Component({
-  selector: 'app-page-brand',
-  templateUrl: './page-brand.component.html',
-  styleUrls: ['./page-brand.component.scss']
+  selector: 'page-companionship',
+  templateUrl: './page-companionship.component.html',
+  styleUrls: ['./page-companionship.component.scss']
 })
-export class PageBrandComponent implements OnChanges {
+export class PageCompanionshipComponent implements OnChanges {
 
   @Input() post;
-  posts;
 
-  constructor(private postService: PostService,
-              @Inject(PLATFORM_ID) private platformId: any,
-              private seoService: SeoService,
-              private state: TransferState,
-              public domSanitizer: DomSanitizer) {
-              }
+  constructor(private seoService: SeoService,
+              public domSanitizer: DomSanitizer) { }
 
   ngOnChanges() {
-    this._getPostsByParent();
     this._setMetaInfo(this.post);
     this._setJSONLDMarkup(this.post);
   }
 
-  private _getPostsByParent() {
-    this.posts = this.state.get(POSTS, null);
-    this.state.set(POSTS, null);
-    if (!this.posts) {
-      this.postService.getPostsByParent(this.post.id).pipe(
-        take(1),
-        tap(posts => isPlatformServer(this.platformId) ? this.state.set(POSTS, posts) : null),
-        tap(posts => this.posts = posts)
-      ).subscribe();
-    }
+  public decode(e) {
+    return JSON.parse(e);
   }
 
   private _setMetaInfo(post) {

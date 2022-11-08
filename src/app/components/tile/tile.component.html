@@ -1,0 +1,8 @@
+<a [routerLink]="[(post?.parent ? '/' + post?.parent?.slug : '') + '/' + post?.slug]">
+    <img [src]="post?.image" [alt]="post?.title" loading="lazy">
+</a>
+<div>
+    <a [routerLink]="[(post?.parent ? '/' + post?.parent?.slug : '') + '/' + post?.slug]">
+        <h3>{{post?.title}}</h3>
+    </a>
+</div>

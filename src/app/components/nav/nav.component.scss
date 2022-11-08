@@ -1,6 +1,7 @@
 :host {
     display: flex;
     flex-direction: column;
+    z-index: 1;
     >div:nth-of-type(1) {
         position: fixed;
         display: none;
@@ -30,8 +31,11 @@
         >p {
             font-size: 1.4rem;
             font-weight: 300;
-            color: darkgrey;
+            color: black;
             text-align: center;
+        }
+        >a {
+            display: none;
         }
         >ul {
             display: flex;
@@ -54,12 +58,20 @@
                         flex-direction: row;
                         align-items: center;
                         justify-content: flex-start;
+                        >svg {
+                            width: 24px;
+                            height: 24px;
+                            fill: black;
+                        }
                         >p {
                             font-size: 1.4rem;
                             font-weight: 300;
-                            color: darkgrey;
+                            color: black;
                             margin: 0 0 0 1rem;
                         }
+                    }
+                    >svg {
+                        fill: black;
                     }
                 }
                 >ul {
@@ -74,7 +86,7 @@
                         >a {
                             font-size: 1.4rem;
                             font-weight: 300;
-                            color: rgba(darkgrey, 1);
+                            color: black;
                             margin: 1rem 2rem;
                         }
                     }
@@ -82,7 +94,7 @@
                 &.opened {
                     overflow: hidden;
                     >div {
-                        box-shadow: 0 0 8px -5px black;
+                        box-shadow: 0 0 8px -5px white;
                     }
                     >ul {
                         display: flex;
@@ -103,7 +115,9 @@
         width: 75px;
         height: 75px;
         border-radius: 50%;
-        border: 1px solid darkgrey;
+        background-color: white;
+        border: 1px solid black;
+        padding: 1px;
         >p {
             font-size: 1.6rem;
             color: black;
@@ -125,38 +139,72 @@
         >div:nth-of-type(2) {
             position: unset;
             display: flex;
+            width: 100%;
+            background-color: rgba(black, .65);
             >p {
                 display: none;
             }
+            >a {
+                display: block;
+                text-align: center;
+                width: 100%;
+                color: white;
+                text-decoration: none;
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+                padding: .5rem 0 1.5rem 0;
+            }
             >ul {
                 flex-direction: row;
+                justify-content: center;
                 >li {
                     position: relative;
                     border: 0;
                     >div {
-                        margin: 1rem;
+                        margin: .75rem;
                         padding: 0;
                         >div {
-                            >p {
-                                margin: 0 1rem 0 .5rem;
+                            >svg {
+                                width: 28px;
+                                height: 28px;
+                                fill: white;
                             }
+                            >p {
+                                color: white;
+                            }
+                        }
+                        >div {
+                            >p {
+                                margin: 0 .5rem;
+                                text-shadow: 0 0 5px black;
+                            }
+                        }
+                        >svg {
+                            fill: white;
                         }
                     }
                     >ul {
                         position: absolute;
                         top: 100%;
-                        left: 0;
-                        background-color: white;
+                        left: -1px;
+                        background-color: rgba(black, .75);
                         width: max-content;
                         padding: 1rem 0;
                         >li {
                             >a {
+                                color: white;
                                 margin: .5rem 1rem .5rem 2rem;
                             }
                         }
                     }
                     &:hover {
                         cursor: pointer;
+                        background-color: rgba(black, .5);
+                        >div {
+                            >svg {
+                                transform: rotate(180deg);
+                            }
+                        }
                         >ul {
                             display: flex;
                         }
@@ -166,6 +214,33 @@
         }
         >span {
             display: none;
+        }
+    }
+}
+
+@media screen and (min-width: 991px) {
+     :host {
+        >div:nth-of-type(2) {
+            >ul {
+                justify-content: space-around;
+                >li {
+                    >div {
+                        margin: 1rem;
+                        >div {
+                            >p {
+                                font-size: 1.6rem;
+                            }
+                        }
+                    }
+                    >ul {
+                        >li {
+                            >a {
+                                font-size: 1.6rem;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

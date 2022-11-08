@@ -23,11 +23,11 @@ export class AppComponent implements OnDestroy {
   constructor(@Inject(PLATFORM_ID) private platformId: object,
               private postDaoService: PostDaoService,
               private router: Router) {
-                this.routerSubscription = this.router.events.subscribe(event => {
-                  if (event instanceof NavigationEnd && isPlatformBrowser(this.platformId)) {
-                      gtag('config', 'G-MBJW38R751', { page_path: event.urlAfterRedirects });
-                  }
-                });
+                // this.routerSubscription = this.router.events.subscribe(event => {
+                //   if (event instanceof NavigationEnd && isPlatformBrowser(this.platformId)) {
+                //       gtag('config', 'G-MBJW38R751', { page_path: event.urlAfterRedirects });
+                //   }
+                // });
                 this._getCities();
                 this._getCompaninships();
                 this._getTransports();
