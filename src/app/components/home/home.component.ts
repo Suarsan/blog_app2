@@ -19,7 +19,8 @@ export class HomeComponent implements OnInit {
 
   private _getPosts() {
     this.postDaoService.getPostsByTag('home').pipe(
-      tap(post => this.posts = post['data']['getPostsByTag'])
+      tap(post => this.posts = post['data']['getPostsByTag']),
+      tap(post => console.dir(this.posts))
     ).subscribe();
   }
 }

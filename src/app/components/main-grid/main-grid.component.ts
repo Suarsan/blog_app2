@@ -14,7 +14,6 @@ export class MainGridComponent implements OnInit {
 
   @Input('posts') set posts(posts) {
     if (posts) {
-      console.dir(posts)
       this.post1 = posts[0];
       this.post2 = posts[1];
       this.post3 = posts[2];
