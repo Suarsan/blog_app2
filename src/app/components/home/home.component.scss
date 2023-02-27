@@ -1,6 +1,13 @@
 :host {
     display: flex;
     flex-direction: column;
+    > span {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: black;
+        height: 200px;
+    }
     >div {
         display: flex;
         flex-direction: row;
