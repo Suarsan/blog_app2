@@ -93,9 +93,6 @@
                 }
                 &.opened {
                     overflow: hidden;
-                    >div {
-                        box-shadow: 0 0 8px -5px white;
-                    }
                     >ul {
                         display: flex;
                         overflow: auto;
