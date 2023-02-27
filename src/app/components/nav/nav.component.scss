@@ -1,7 +1,6 @@
 :host {
     display: flex;
     flex-direction: column;
-    z-index: 1;
     >div:nth-of-type(1) {
         position: fixed;
         display: none;
