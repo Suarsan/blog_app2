@@ -2,7 +2,6 @@
 <div [class.opened]="showMenu">
     <span></span>
     <p>Planear mi viaje en función de...</p>
-    <a [routerLink]="['/']">visitarlavera.es</a>
     <ul>
         <li [class.opened]="showing === 'cities'">
             <div (click)="toggle('cities')">

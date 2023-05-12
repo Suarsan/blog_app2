@@ -1,6 +1,6 @@
-<span></span>
-<app-main-grid [posts]="posts?.slice(0, 4)"></app-main-grid>
-<img src="assets/mapadelavera.jpg" alt="Mapa ruta de La Vera">
 <section>
-    <app-card-detail *ngFor="let post of posts?.slice(3, -1)" [post]="post"></app-card-detail>
+    <app-main-grid [posts]="posts?.slice(0, 4)"></app-main-grid>
+    <img src="assets/mapadelavera.jpg" alt="Mapa ruta de La Vera">
+    <!-- <app-card-list [posts]="posts?.slice(4, 8)"></app-card-list> -->
+    <!-- <app-card-detail *ngFor="let post of posts?.slice(8, -1)" [post]="post"></app-card-detail> -->
 </section>

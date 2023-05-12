@@ -1,20 +1,13 @@
 :host {
     display: flex;
     flex-direction: column;
-    > span {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        background-color: black;
-        height: 82px;
-    }
-    > img {
-        display: none;
-    }
     > section {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        > img {
+            display: none;
+        }
         > app-card-detail {
             flex-basis: 100%;
         }
@@ -23,12 +16,16 @@
 
 @media screen and (min-width: 575px) {
     :host {
-        > img {
-            display: flex;
-            width: 100%;
-            height: auto;
-        }
         > section {
+            > app-main-grid {
+                width: 575px;
+                margin: 0 auto;
+            }
+            > img {
+                display: flex;
+                width: 100%;
+                height: auto;
+            }
             > app-card-detail {
                 flex-basis: 50%;
             }
@@ -39,6 +36,10 @@
 @media screen and (min-width: 768px) {
     :host {
         > section {
+            > app-main-grid {
+                width: 768px;
+                margin: 0 auto;
+            }
             > app-card-detail {
                 flex-basis: 33.3333%;
             }
@@ -49,6 +50,10 @@
 @media screen and (min-width: 992px) {
     :host {
         > section {
+            > app-main-grid {
+                width: 992px;
+                margin: 0 auto;
+            }
             > app-card-detail {
                 flex-basis: 25%;
             }

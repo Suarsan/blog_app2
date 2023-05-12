@@ -13,20 +13,21 @@
         >h1 {
             display: flex;
             flex-direction: column;
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: 800;
             color: lightgrey;
-            margin: 1rem;
+            margin: 1rem 1rem 2rem 2rem;
             >span {
-                font-size: 1.8rem;
+                font-size: 1.4rem;
+                font-weight: 500;
                 line-height: 1.8rem;
             }
         }
         >h2 {
-            font-size: 1.6rem;
+            font-size: 1.2rem;
             font-weight: 300;
             color: lightgrey;
-            margin: 0 1rem;
+            margin: 0 2rem;
             text-transform: uppercase;
             letter-spacing: .25rem;
         }

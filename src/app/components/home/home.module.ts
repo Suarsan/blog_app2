@@ -6,13 +6,14 @@ import { TileModule } from '../tile/tile.module';
 import { MainGridComponent } from '../main-grid/main-grid.component';
 import { CardDetailComponent } from '../card-detail/card-detail.component';
 import { PipesModule } from 'src/app/pipes/pipes.module';
+import { CardListComponent } from '../card-list/card-list.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     MainGridComponent,
-    CardDetailComponent
-    
+    CardDetailComponent,
+    CardListComponent
   ],
   imports: [
     CommonModule,
