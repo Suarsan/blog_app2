@@ -1,19 +1,16 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss']
 })
-export class IndexComponent implements OnInit, OnChanges {
+export class IndexComponent implements OnChanges {
 
   @Input() items;
   structure;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   ngOnChanges() {
     const titles = [];

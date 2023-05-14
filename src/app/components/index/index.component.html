@@ -6,7 +6,6 @@
             <ul>
                 <li *ngFor="let subtitle of title.subtitles">
                     <a routerLink="./" [title]="subtitle.name" fragment="{{subtitle.name | encodeuri}}">{{subtitle.name}}</a>
-                    <!-- <a routerLink="./" fragment="{{subtitle.name | encodeuri}}" [title]="subtitle.name">{{subtitle.name}}</a> -->
                 </li>
             </ul>
         </li>

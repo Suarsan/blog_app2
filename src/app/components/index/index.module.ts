@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IndexComponent } from './index.component';
-import { IndexRoutingModule } from './index-routing.module';
 import { PipesModule } from 'src/app/pipes/pipes.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -10,8 +10,8 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
   ],
   imports: [
     CommonModule,
-    IndexRoutingModule,
-    PipesModule
+    PipesModule,
+    RouterModule
   ],
   exports: [
     IndexComponent
