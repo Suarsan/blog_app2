@@ -1,21 +1,96 @@
 :host {
     display: flex;
     flex-direction: column;
+    > div {
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, .25), rgba(0, 0, 0, .75)), url('../../../assets/images/lavera-vegetacion.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            height: 100vh;
+            max-width: 552px;
+            margin: 0 auto;
+            > a {
+                margin: 15vh 0 0 10vw;
+                text-decoration: none;
+                > h1 {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    font-size: 3.5rem;
+                    font-weight: 400;
+                    letter-spacing: 1px;
+                    color: white;
+                    text-shadow: 2px 2px 4px black;
+                    > span {
+                        font-size: 7rem;
+                        font-weight: 600;
+                    }
+                }
+                
+            }
+            > div {
+                display: flex;
+                flex-direction: column;
+                > p {
+                    font-size: 1.6rem;
+                    font-weight: 300;
+                    color: white;
+                    margin: 0 3rem;
+                    line-height: 2rem;
+                } 
+                > a {
+                    margin: 5rem auto 10vh auto;
+                    text-decoration: none;
+                    > span {
+                        font-size: 1.6rem;
+                        font-weight: 300;
+                        border: 1px solid white;
+                        padding: 1rem 2rem;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
     > section {
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        background-color: rgb(238, 238, 238);
+        padding: 4rem 2rem;
+        > div {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            > h3 {
+                font-size: 1.8rem;
+                font-weight: 300;
+                margin: 0 0 2rem 4rem;
+                letter-spacing: 1px;
+                > span {
+                    font-size: 2rem;
+                    font-weight: 800;
+                    color: #549f4c;
+                }
+            }
+        }
     }
 }
 
 @media screen and (min-width: 575px) {
     :host {
         > section {
-            > app-grid {
+            padding: 6rem 2rem;
+            > div {
                 width: 575px;
                 margin: 0 auto;
             }
-    
         }
     }
 }
@@ -23,7 +98,7 @@
 @media screen and (min-width: 992px) {
     :host {
         > section {
-            > app-grid {
+            > div {
                 width: 768px;
                 margin: 0 auto;
             }
@@ -33,8 +108,21 @@
 
 @media screen and (min-width: 1200px) {
     :host {
+        > div {
+            > div {
+                height: 40vh;
+                max-width: unset;
+                > a {
+                    margin-top: 5vh;
+                }
+                > div {
+                    display: none;
+                }
+            }
+        }
         > section {
-            > app-grid {
+            padding-top: 20rem;
+            > div {
                 width: 992px;
                 margin: 0 auto;
             }
@@ -44,7 +132,7 @@
 @media screen and (min-width: 1600px) {
     :host {
         > section {
-            > app-grid {
+            > div {
                 width: 1200px;
                 margin: 0 auto;
             }

@@ -1,0 +1,100 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 4rem 2rem;
+    box-sizing: border-box;
+    > p {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: black;
+        margin: 1rem 2rem 2rem 1rem;
+    }
+    > div {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        > a {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-basis: calc(50% - 1rem - 2px);
+            height: 150px;
+            color: black;
+            margin: .5rem;
+            border-radius: 5px;
+            box-shadow: rgba(149, 157, 165, 0.4) 2px 2px 8px;
+            text-decoration: none;
+            background-color: white;
+            > svg {
+                width: 3rem;
+                height: 3rem;
+                fill: #549f4c;
+            }
+            > p {
+                font-size: 1.3rem;
+                text-align: center;
+                margin: 1rem 0 0 0;
+                color: black;
+            }
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: rgba(149, 157, 165, 0.4) 4px 4px 8px;
+                transition: ease .25s;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 552px) {
+    :host {
+        padding: 6rem 2rem;
+        > p {
+            font-size: 1.6rem;
+            margin: 2rem 2rem 3rem 1rem;
+        }
+        > div {
+            max-width: 552px;
+            > a {
+                flex-basis: calc(50% - 2rem - 2px);
+                margin: 1rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    :host {
+        position: absolute;
+        top: 20vh;
+        > p {
+            font-weight: 300;
+            color: white;
+            margin: 4rem 2rem 2rem 2rem;
+        }
+        > div {
+            justify-content: space-evenly;
+            max-width: 90vw;
+            width: 100%;
+            > a {
+                flex-basis: calc(25% - 2rem - 2px);
+                > svg {
+                    margin-bottom: 1.5rem;
+                    border: 2px solid #549f4c;
+                    border-radius: 50%;
+                    padding: 1rem;
+                    width: 2.5rem;
+                    height: 2.5rem;
+                }
+                > p {
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                    white-space: nowrap;
+                    margin: 0;
+                }
+            }
+        }
+    } 
+}

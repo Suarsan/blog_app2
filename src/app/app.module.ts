@@ -8,12 +8,10 @@ import { APOLLO_OPTIONS } from 'apollo-angular';
 import { AppComponent } from './app.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { environment } from 'src/environments/environment';
-import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
     NotfoundComponent
   ],
   imports: [

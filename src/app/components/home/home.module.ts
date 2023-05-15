@@ -4,10 +4,12 @@ import { HomeComponent } from './home.component';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { CardsModule } from '../cards/cards.module';
 import { HomeRoutingModule } from './home-routing.module';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    NavComponent
   ],
   imports: [
     CommonModule,
@@ -15,6 +17,6 @@ import { HomeRoutingModule } from './home-routing.module';
     PipesModule,
     CardsModule
   ],
-  exports: [HomeComponent]
+  exports: [HomeComponent, NavComponent]
 })
 export class HomeModule { }
