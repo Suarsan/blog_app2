@@ -25,7 +25,12 @@ export class PageCityComponent implements OnChanges {
   }
 
   public decode(e) {
-    return JSON.parse(e);
+    try {
+      return JSON.parse(e);
+    } catch (error) {
+      console.dir(error);
+      return [];
+    }
   }
 
   private _setMetaInfo(post) {
