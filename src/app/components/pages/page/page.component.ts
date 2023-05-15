@@ -1,7 +1,7 @@
-import { Component, OnInit, Inject, PLATFORM_ID, OnDestroy } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { PostService } from 'src/app/services/post-services/post-service/post.service';
-import { tap, take, map, flatMap, filter } from 'rxjs/operators';
+import { tap, take, filter } from 'rxjs/operators';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
 import { isPlatformServer } from '@angular/common';
 
@@ -12,14 +12,14 @@ const POST = makeStateKey('post');
   templateUrl: './page.component.html',
   styleUrls: ['./page.component.scss']
 })
-export class PageComponent implements OnInit, OnDestroy {
+export class PageComponent implements OnInit {
 
   post;
   routerSubscription;
 
   constructor(@Inject(PLATFORM_ID) private platformId: object,
-              private activatedRoute: ActivatedRoute,
               private router: Router,
+              private cdr: ChangeDetectorRef,
               private postService: PostService,
               private state: TransferState) { }
 
@@ -29,6 +29,7 @@ export class PageComponent implements OnInit, OnDestroy {
   }
 
   private _routerSubscription() {
+    this.routerSubscription?.unsubscribe();
     this.routerSubscription = this.router.events.pipe(
       filter(o => o instanceof NavigationEnd),
       tap(o => this._getPost())
@@ -39,19 +40,12 @@ export class PageComponent implements OnInit, OnDestroy {
     this.post = this.state.get(POST, null);
     this.state.set(POST, null);
     if (!this.post) {
-      this.getPostPath().pipe(
-        flatMap(path => this.postService.getPost(path)),
+      this.postService.getPost(this.router.url.split('/')[this.router.url.split('/').length - 1]).pipe(
+        take(1),
         tap(post => isPlatformServer(this.platformId) ? this.state.set(POST, post) : null),
         tap(post => post ? this.post = post : this.router.navigate(['/404']))
       ).subscribe();
     }
   }
 
-  private getPostPath() {
-    return this.activatedRoute.url.pipe(take(1), map(path => path[path.length - 1].path));
-  }
-
-  ngOnDestroy() {
-    this.routerSubscription.unsubscribe();
-  }
 }
