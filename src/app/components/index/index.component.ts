@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'index',
@@ -10,11 +11,11 @@ export class IndexComponent implements OnChanges {
   @Input() items;
   structure;
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnChanges() {
     const titles = [];
-    this.items.forEach((i, n) => {
+    this.items?.forEach(i => {
       if (i.htmlTag.content === 'title') { titles.push({ name: i.content, subtitles: [] }); }
       if (i.htmlTag.content === 'subtitle') { titles[titles.length - 1].subtitles.push({ name: i.content }); }
     });

@@ -2,10 +2,10 @@
 <ul>
     <ng-container *ngFor="let title of structure">
         <li>
-            <a routerLink="./" fragment="{{title.name | encodeuri}}" [title]="title.name">{{title.name}}</a>
+            <a [routerLink]="router?.url" fragment="{{title.name | encodeuri}}" [title]="title.name">{{title.name}}</a>
             <ul>
                 <li *ngFor="let subtitle of title.subtitles">
-                    <a routerLink="./" [title]="subtitle.name" fragment="{{subtitle.name | encodeuri}}">{{subtitle.name}}</a>
+                    <a [routerLink]="router?.url" fragment="{{subtitle.name | encodeuri}}" [title]="subtitle.name">{{subtitle.name}}</a>
                 </li>
             </ul>
         </li>
