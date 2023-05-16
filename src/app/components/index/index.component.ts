@@ -10,8 +10,11 @@ export class IndexComponent implements OnChanges {
 
   @Input() items;
   structure;
+  routerLink;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router) { 
+    this.routerLink = this.router.url.replace(/#.*/, "");
+  }
 
   ngOnChanges() {
     const titles = [];
