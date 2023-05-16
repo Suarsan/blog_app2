@@ -38,30 +38,30 @@ export class PageDaysComponent implements OnChanges {
     });
   }
 
-  private _setJSONLDMarkup(post) {
-    const json = {
-      '@context': 'https://schema.org/',
-      '@type': 'Organization',
-      name: post.title,
-      brand: {
-        '@type': 'Brand',
-        logo: post.image,
-        name: post.title,
-      },
-      review: {
-        '@type': 'Review',
-        name: post.title,
-        author: {
-          '@type': 'Person',
-          name: post.author.firstname + ' ' + post.author.lastname
-        },
-        reviewBody: post.paragraphs.map(p => p.content).join(''),
-        publisher: {
-          '@type': 'Organization',
-          name: 'Camisetas basicas online'
-        }
-      }
-    };
-    this.seoService.setJSONLDMarkups(json);
-  }
+  // private _setJSONLDMarkup(post) {
+  //   const json = {
+  //     '@context': 'https://schema.org/',
+  //     '@type': 'Organization',
+  //     name: post.title,
+  //     brand: {
+  //       '@type': 'Brand',
+  //       logo: post.image,
+  //       name: post.title,
+  //     },
+  //     review: {
+  //       '@type': 'Review',
+  //       name: post.title,
+  //       author: {
+  //         '@type': 'Person',
+  //         name: post.author.firstname + ' ' + post.author.lastname
+  //       },
+  //       reviewBody: post.paragraphs.map(p => p.content).join(''),
+  //       publisher: {
+  //         '@type': 'Organization',
+  //         name: 'Camisetas basicas online'
+  //       }
+  //     }
+  //   };
+  //   this.seoService.setJSONLDMarkups(json);
+  // }
 }
