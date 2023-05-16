@@ -1,9 +1,6 @@
-import { Component, Input, OnChanges, Inject, PLATFORM_ID } from '@angular/core';
-import { PostService } from 'src/app/services/post-services/post-service/post.service';
-import { tap, take } from 'rxjs/operators';
+import { Component, Input, OnChanges } from '@angular/core';
 import { SeoService } from 'src/app/services/seo/seo.service';
-import { TransferState, makeStateKey, DomSanitizer } from '@angular/platform-browser';
-import { isPlatformServer } from '@angular/common';
+import { makeStateKey, DomSanitizer } from '@angular/platform-browser';
 
 const POSTS = makeStateKey('posts');
 
@@ -21,7 +18,7 @@ export class PageDaysComponent implements OnChanges {
 
   ngOnChanges() {
     this._setMetaInfo(this.post);
-    this._setJSONLDMarkup(this.post);
+    // this._setJSONLDMarkup(this.post);
   }
 
   public decode(e) {
