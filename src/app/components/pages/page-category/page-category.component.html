@@ -10,51 +10,9 @@
 </div>
 <div>
     <div>
-        <ng-container *ngFor="let paragraph of post?.paragraphs?.slice(0, 1); let n = index">
-            <h3 [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'title'" [innerHtml]="paragraph.content"></h3>
-            <h4 [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'subtitle'" [innerHtml]="paragraph.content"></h4>
-            <p [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'paragraph'" [innerHtml]="paragraph.content"></p>
-            <strong [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'quote'" [innerHtml]="paragraph.content"></strong>
-            <span [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'summary'" [innerHtml]="paragraph.content"></span>
-            <img [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'image'" [src]="paragraph.content" [alt]="paragraph.content" loading="lazy">
-            <div [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'images'">
-                <img *ngFor="let image of paragraph.content.split(';')" [src]="image" [alt]="image" loading="lazy">
-            </div>
-            <ul [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'wikiloc'" class="wikiloc">
-                <li *ngFor="let wikiloc of decode(paragraph.content)">
-                    <a [href]="wikiloc.url">{{wikiloc.name}}</a>
-                    <div>
-                        <span>{{wikiloc.km}}km · {{wikiloc.hard === 3 ? 'Difícil' : (wikiloc.hard === 2 ? 'Medio' : 'Fácil')}}</span>
-                        <span>Valoración <meter [value]="wikiloc.rate" min="0" max="5" [value]="wikiloc.rate" max="5"></meter></span>
-                    </div>
-                </li>
-            </ul>
-            <iframe [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'video'" [src]="domSanitizer.bypassSecurityTrustResourceUrl(paragraph.content.split(';')[0])" [width]="paragraph.content.split(';')[1]" [height]="paragraph.content.split(';')[2]"
-                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </ng-container>
+        <app-paragraphs [paragraphs]="post?.paragraphs?.slice(0, 2)"></app-paragraphs>
         <app-grid [posts]="children"></app-grid>
-        <ng-container *ngFor="let paragraph of post?.paragraphs?.slice(1); let n = index">
-            <h3 [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'title'" [innerHtml]="paragraph.content"></h3>
-            <h4 [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'subtitle'" [innerHtml]="paragraph.content"></h4>
-            <p [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'paragraph'" [innerHtml]="paragraph.content"></p>
-            <strong [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'quote'" [innerHtml]="paragraph.content"></strong>
-            <span [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'summary'" [innerHtml]="paragraph.content"></span>
-            <img [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'image'" [src]="paragraph.content" [alt]="paragraph.content" loading="lazy">
-            <div [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'images'">
-                <img *ngFor="let image of paragraph.content.split(';')" [src]="image" [alt]="image" loading="lazy">
-            </div>
-            <ul [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'wikiloc'" class="wikiloc">
-                <li *ngFor="let wikiloc of decode(paragraph.content)">
-                    <a [href]="wikiloc.url">{{wikiloc.name}}</a>
-                    <div>
-                        <span>{{wikiloc.km}}km · {{wikiloc.hard === 3 ? 'Difícil' : (wikiloc.hard === 2 ? 'Medio' : 'Fácil')}}</span>
-                        <span>Valoración <meter [value]="wikiloc.rate" min="0" max="5" [value]="wikiloc.rate" max="5"></meter></span>
-                    </div>
-                </li>
-            </ul>
-            <iframe [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'video'" [src]="domSanitizer.bypassSecurityTrustResourceUrl(paragraph.content.split(';')[0])" [width]="paragraph.content.split(';')[1]" [height]="paragraph.content.split(';')[2]"
-                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </ng-container>
+        <app-paragraphs [paragraphs]="post?.paragraphs?.slice(2)"></app-paragraphs>
     </div>
     <aside>
     </aside>

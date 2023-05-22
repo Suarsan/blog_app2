@@ -17,7 +17,7 @@
             max-width: 552px;
             margin: 0 auto;
             > a {
-                margin: 15vh 0 0 10vw;
+                margin: 10vh 0 0 10vw;
                 text-decoration: none;
                 > h1 {
                     display: flex;
@@ -46,7 +46,7 @@
                     line-height: 2rem;
                 } 
                 > a {
-                    margin: 5rem auto 10vh auto;
+                    margin: 5rem auto 15vh auto;
                     text-decoration: none;
                     > span {
                         font-size: 1.6rem;
@@ -110,7 +110,7 @@
     :host {
         > div {
             > div {
-                height: 40vh;
+                height: 45vh;
                 max-width: unset;
                 > a {
                     margin-top: 5vh;
