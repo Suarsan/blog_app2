@@ -24,11 +24,27 @@
             margin: 0;
             list-style: none;
             > li {
-                margin: 2rem;
+                display: flex;
+                flex-direction: row;
                 > a {
                     font-size: 1.6rem;
                     color: white;
                     text-decoration: none;
+                    padding: 1rem 2rem;
+                    > svg {
+                        width: 2rem;
+                        height: 2rem;
+                        fill: white;
+                        overflow: visible;
+                    }
+                }
+                &:hover {
+                    background-color: #498842;
+                    color: white;
+                    > a >svg {
+                        transform: scale(1.1);
+                        transition: ease .25s;
+                    }
                 }
             }
         }

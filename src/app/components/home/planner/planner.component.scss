@@ -32,6 +32,7 @@
                 width: 3rem;
                 height: 3rem;
                 fill: #549f4c;
+                overflow: visible;
             }
             > p {
                 font-size: 1.3rem;
@@ -84,9 +85,9 @@
                     margin-bottom: 1.5rem;
                     border: 2px solid #549f4c;
                     border-radius: 50%;
-                    padding: 1rem;
-                    width: 2.5rem;
-                    height: 2.5rem;
+                    padding: 1.25rem;
+                    width: 2rem;
+                    height: 2rem;
                 }
                 > p {
                     font-size: 1.6rem;
