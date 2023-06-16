@@ -16,8 +16,8 @@ export class LoyaltyPrivacyComponent implements OnInit {
 
   private _setMetaInfo() {
     this.seoService.setMetaTags({
-      title: 'Políticas de privacidad · camisetasbaiscas.online',
-      description: 'Toda la información disponible acerca de los políticas de privacidad asociadas al sitio www.camisetasbasicas.online',
+      title: 'Políticas de privacidad · descubrelavera.com',
+      description: 'Toda la información disponible acerca de los políticas de privacidad asociadas al sitio www.descubrelavera.com',
       slug: 'privacy'
     });
   }

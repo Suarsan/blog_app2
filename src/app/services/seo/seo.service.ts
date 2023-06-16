@@ -16,12 +16,12 @@ export class SeoService {
     this.meta.updateTag({ name: 'title', content: config.title});
     this.meta.updateTag({ name: 'description', content: config.description});
     this.meta.updateTag({ name: 'twitter:card', content: 'summary'});
-    this.meta.updateTag({ name: 'twitter:site', content: '@camisetabasic'});
+    this.meta.updateTag({ name: 'twitter:site', content: '@descubrelavera'});
     this.meta.updateTag({ name: 'twitter:title', content: config.title});
     this.meta.updateTag({ name: 'twitter:description', content: config.description});
     this.meta.updateTag({ name: 'twitter:image', content: config.image});
     this.meta.updateTag({ name: 'og:type', content: 'article'});
-    this.meta.updateTag({ name: 'og:url', content: 'camisetasbasicas.online/' + (config.parent ? config.parent.slug + '/' : '') + config.slug });
+    this.meta.updateTag({ name: 'og:url', content: 'descubrelavera.com/' + (config.parent ? config.parent.slug + '/' : '') + config.slug });
     this.meta.updateTag({ name: 'og:title', content: config.title});
     this.meta.updateTag({ name: 'og:description', content: config.description});
     this.meta.updateTag({ name: 'og:image', content: config.image});
@@ -33,7 +33,7 @@ export class SeoService {
     this.document.querySelectorAll('link[rel=canonical]').forEach(l => l.remove());
     const link: HTMLLinkElement = this.document.createElement('link');
     link.setAttribute('rel', 'canonical');
-    link.setAttribute('href', 'https://camisetasbasicas.online/' + (config.parent ? config.parent.slug + '/' : '') + config.slug);
+    link.setAttribute('href', 'https://descubrelavera.com/' + (config.parent ? config.parent.slug + '/' : '') + config.slug);
     this.document.head.appendChild(link);
   }
 
@@ -42,7 +42,7 @@ export class SeoService {
     const link: HTMLLinkElement = this.document.createElement('link');
     link.setAttribute('rel', 'alternate');
     link.setAttribute('hreflang', 'es');
-    link.setAttribute('href', 'https://camisetasbasicas.online/' + (config.parent ? config.parent.slug + '/' : '') + config.slug);
+    link.setAttribute('href', 'https://descubrelavera.com/' + (config.parent ? config.parent.slug + '/' : '') + config.slug);
     this.document.head.appendChild(link);
   }
 

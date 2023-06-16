@@ -16,8 +16,8 @@ export class LegalComponent implements OnInit {
 
   private _setMetaInfo() {
     this.seoService.setMetaTags({
-      title: 'Temas legales · camisetasbaiscas.online',
-      description: 'Toda la información disponible acerca de los temas legales y políticas asociadas con el sitio www.camisetasbasicas.online',
+      title: 'Temas legales · descubrelavera.com',
+      description: 'Toda la información disponible acerca de los temas legales y políticas asociadas con el sitio www.descubrelavera.com',
       slug: 'legal'
     });
   }
