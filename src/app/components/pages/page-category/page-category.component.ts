@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, Inject, PLATFORM_ID } from '@angular/core';
 import { PostService } from 'src/app/services/post-services/post-service/post.service';
-import { map, tap } from 'rxjs/operators';
+import { map, take, tap } from 'rxjs/operators';
 import { SeoService } from 'src/app/services/seo/seo.service';
 import { TransferState, makeStateKey, DomSanitizer } from '@angular/platform-browser';
 import { isPlatformServer } from '@angular/common';
@@ -36,6 +36,7 @@ export class PageCategoryComponent implements OnChanges {
     this.state.set(CHILDREN, null);
     if (this.post) {
       this.postService.getPostsByParent(id).pipe(
+        take(1),
         tap(posts => isPlatformServer(this.platformId) ? this.state.set(CHILDREN, posts) : null),
         map(posts => [...posts].sort((a, b) => a.title.toLocaleUpperCase() > b.title.toLocaleUpperCase() ? 1 : -1)),
         tap(posts => posts ? this.children = posts : this.router.navigate(['/404']))
