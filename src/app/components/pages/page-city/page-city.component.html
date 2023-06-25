@@ -8,6 +8,7 @@
         <app-paragraphs [paragraphs]="post?.paragraphs"></app-paragraphs>
     </div>
     <aside>
+        <app-analysis *ngIf="post?.analysis" [analysis]="post?.analysis"></app-analysis>
         <iframe *ngIf="mapsCode" [src]="mapsCode" class="maps" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </aside>
 </div>
