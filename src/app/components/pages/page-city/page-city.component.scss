@@ -47,7 +47,9 @@
             > iframe.maps {
                 width: 100%;
                 height: 500px;
-                border: 0;
+                border: 1px solid lightgrey;
+                border-radius: .25rem;
+                box-sizing: border-box;
             }
         }
     }
