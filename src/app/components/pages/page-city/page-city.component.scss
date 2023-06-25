@@ -38,12 +38,12 @@
         >div {
             display: flex;
             flex-direction: column;
-            margin: 2rem;
+            margin: 2rem 1rem;
         }
         > aside{
             display: flex;
             flex-direction: column;
-            margin: 2rem;
+            margin: 2rem 1rem;
             > iframe.maps {
                 width: 100%;
                 height: 500px;
