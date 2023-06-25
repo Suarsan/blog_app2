@@ -1,9 +1,10 @@
-import { Component, OnInit, Inject, PLATFORM_ID, ChangeDetectorRef } from '@angular/core';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { PostService } from 'src/app/services/post-services/post-service/post.service';
 import { tap, take, filter } from 'rxjs/operators';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
 import { isPlatformServer } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 const POST = makeStateKey('post');
 const RELATEDPOSTS = makeStateKey('relatedposts');
@@ -17,7 +18,7 @@ export class PageComponent implements OnInit {
 
   post;
   relatedPosts;
-  routerSubscription;
+  routerSubscription: Subscription;
 
   constructor(@Inject(PLATFORM_ID) private platformId: object,
               private router: Router,
@@ -34,8 +35,7 @@ export class PageComponent implements OnInit {
     this.routerSubscription?.unsubscribe();
     this.routerSubscription = this.router.events.pipe(
       filter(o => o instanceof NavigationEnd),
-      tap(o => this._getPost()),
-      tap(o => this._getRelatedPosts()),
+      tap(o => this._getPost())
     ).subscribe();
   }
 
@@ -46,7 +46,8 @@ export class PageComponent implements OnInit {
       this.postService.getPost(this.router.url.split('/')[this.router.url.split('/').length - 1].replace(/#.*/, "")).pipe(
         take(1),
         tap(post => isPlatformServer(this.platformId) ? this.state.set(POST, post) : null),
-        tap(post => post ? this.post = post : this.router.navigate(['/404']))
+        tap(post => post ? this.post = post : this.router.navigate(['/404'])),
+        tap(post => this.post.type.content === 'CITY' ? this._getRelatedPosts() : null)
       ).subscribe();
     }
   }
