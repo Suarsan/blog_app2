@@ -27,7 +27,7 @@
                 display: flex;
                 flex-direction: row;
                 > a {
-                    padding: 1rem 2rem;
+                    padding: .75rem 1.5rem;
                     > svg {
                         width: 2rem;
                         height: 2rem;
@@ -48,5 +48,19 @@
     }
     &.extended {
         justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 575px) {
+    :host {
+        > div {
+            > ul {
+                > li {
+                    > a {
+                        padding: 1rem 2rem;
+                    }
+                }
+            }
+        }
     }
 }
