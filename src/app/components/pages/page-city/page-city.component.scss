@@ -39,7 +39,16 @@
             display: flex;
             flex-direction: column;
             margin: 2rem;
-
+        }
+        > aside{
+            display: flex;
+            flex-direction: column;
+            margin: 2rem 0;
+            > iframe.maps {
+                width: 100%;
+                height: 500px;
+                border: 0;
+            }
         }
     }
 }

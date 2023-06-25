@@ -11,13 +11,14 @@ export class PageCityComponent implements OnChanges {
 
   @Input() post;
   @Input() relatedPosts;
+  mapsCode;
 
   constructor(private seoService: SeoService,
-              public domSanitizer: DomSanitizer) { }
+              private domSanitizer: DomSanitizer) { }
 
   ngOnChanges() {
     this._setMetaInfo(this.post);
-    // this._setJSONLDMarkup(this.post);
+    this._setMapsCode(this.post);
   }
 
   public decode(e) {
@@ -27,6 +28,10 @@ export class PageCityComponent implements OnChanges {
       console.dir(error);
       return [];
     }
+  }
+
+  private _setMapsCode(post) {
+    return this.mapsCode = this.domSanitizer.bypassSecurityTrustResourceUrl('https://www.google.com/maps/embed?pb=' + post?.paragraphs?.find(p => p?.htmlTag?.content === 'maps' )?.content);
   }
 
   private _setMetaInfo(post) {
@@ -39,30 +44,4 @@ export class PageCityComponent implements OnChanges {
     });
   }
 
-  // private _setJSONLDMarkup(post) {
-  //   const json = {
-  //     '@context': 'https://schema.org/',
-  //     '@type': 'Organization',
-  //     name: post.title,
-  //     brand: {
-  //       '@type': 'Brand',
-  //       logo: post.image,
-  //       name: post.title,
-  //     },
-  //     review: {
-  //       '@type': 'Review',
-  //       name: post.title,
-  //       author: {
-  //         '@type': 'Person',
-  //         name: post.author.firstname + ' ' + post.author.lastname
-  //       },
-  //       reviewBody: post.paragraphs.map(p => p.content).join(''),
-  //       publisher: {
-  //         '@type': 'Organization',
-  //         name: 'Camisetas basicas online'
-  //       }
-  //     }
-  //   };
-  //   this.seoService.setJSONLDMarkups(json);
-  // }
 }
