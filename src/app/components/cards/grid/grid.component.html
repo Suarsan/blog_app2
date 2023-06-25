@@ -4,9 +4,6 @@
             <article>
                 <img [src]="post?.image" alt="">
                 <div [routerLink]="['/', post.parent?.slug, post.slug]">
-                    <div>
-                        <span *ngFor="let tag of post?.tags?.slice(0,3)">{{ tag.content }}</span>
-                    </div>
                     <a [routerLink]="['/', post.parent?.slug, post?.slug]">
                         <h1>{{post?.title.split('.')[0]}}</h1>
                     </a>
