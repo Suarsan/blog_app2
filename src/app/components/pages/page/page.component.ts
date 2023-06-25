@@ -27,7 +27,6 @@ export class PageComponent implements OnInit {
 
   ngOnInit() {
     this._getPost();
-    this._getRelatedPosts();
     this._routerSubscription();
   }
 
