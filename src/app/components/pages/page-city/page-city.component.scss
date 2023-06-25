@@ -85,7 +85,7 @@
         >div:nth-of-type(2) {
             display: flex;
             flex-direction: row;
-            margin: 0 auto;
+            margin: 2rem auto;
             >div {
                 width: calc(100% - 300px);
             }
@@ -115,7 +115,7 @@
         }
         >div:nth-of-type(2) {
             width: 991px;
-            margin: 0 auto;
+            margin: 2rem auto;
         }
     }
 }
