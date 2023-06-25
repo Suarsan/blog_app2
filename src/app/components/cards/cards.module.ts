@@ -4,11 +4,13 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
 import { GridComponent } from './grid/grid.component';
 import { RouterModule } from '@angular/router';
 import { IndexComponent } from './index/index.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
     GridComponent,
-    IndexComponent
+    IndexComponent,
+    ListComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { IndexComponent } from './index/index.component';
   ],
   exports: [
     GridComponent,
-    IndexComponent
+    IndexComponent,
+    ListComponent
   ]
 })
 export class CardsModule { }

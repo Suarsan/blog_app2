@@ -10,3 +10,4 @@
     <aside>
     </aside>
 </div>
+<app-list *ngIf="relatedPosts" [title]="'Cerca de ' + post?.title.split('.')[0]" [posts]="relatedPosts"></app-list>

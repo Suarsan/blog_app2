@@ -6,6 +6,7 @@ import { TransferState, makeStateKey } from '@angular/platform-browser';
 import { isPlatformServer } from '@angular/common';
 
 const POST = makeStateKey('post');
+const RELATEDPOSTS = makeStateKey('relatedposts');
 
 @Component({
   selector: 'app-page',
@@ -15,6 +16,7 @@ const POST = makeStateKey('post');
 export class PageComponent implements OnInit {
 
   post;
+  relatedPosts;
   routerSubscription;
 
   constructor(@Inject(PLATFORM_ID) private platformId: object,
@@ -24,6 +26,7 @@ export class PageComponent implements OnInit {
 
   ngOnInit() {
     this._getPost();
+    this._getRelatedPosts();
     this._routerSubscription();
   }
 
@@ -31,7 +34,8 @@ export class PageComponent implements OnInit {
     this.routerSubscription?.unsubscribe();
     this.routerSubscription = this.router.events.pipe(
       filter(o => o instanceof NavigationEnd),
-      tap(o => this._getPost())
+      tap(o => this._getPost()),
+      tap(o => this._getRelatedPosts()),
     ).subscribe();
   }
 
@@ -43,6 +47,18 @@ export class PageComponent implements OnInit {
         take(1),
         tap(post => isPlatformServer(this.platformId) ? this.state.set(POST, post) : null),
         tap(post => post ? this.post = post : this.router.navigate(['/404']))
+      ).subscribe();
+    }
+  }
+
+  private _getRelatedPosts() {
+    this.relatedPosts = this.state.get(RELATEDPOSTS, null);
+    this.state.set(RELATEDPOSTS, null);
+    if (!this.relatedPosts) {
+      this.postService.getPostsByTag('near-' + this.router.url.split('/')[this.router.url.split('/').length - 1].replace(/#.*/, "")).pipe(
+        take(1),
+        tap(relatedPosts => isPlatformServer(this.platformId) ? this.state.set(RELATEDPOSTS, relatedPosts) : null),
+        tap(relatedPosts => relatedPosts ? this.relatedPosts = relatedPosts : [])
       ).subscribe();
     }
   }

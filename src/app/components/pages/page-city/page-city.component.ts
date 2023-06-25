@@ -10,6 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class PageCityComponent implements OnChanges {
 
   @Input() post;
+  @Input() relatedPosts;
 
   constructor(private seoService: SeoService,
               public domSanitizer: DomSanitizer) { }
