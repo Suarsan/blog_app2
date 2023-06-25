@@ -18,5 +18,5 @@
         </li>
     </ul>
     <iframe [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'video'" [src]="domSanitizer.bypassSecurityTrustResourceUrl(paragraph.content.split(';')[0])" [width]="paragraph.content.split(';')[1]" [height]="paragraph.content.split(';')[2]"
-        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </ng-container>
