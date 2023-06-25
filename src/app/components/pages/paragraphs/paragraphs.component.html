@@ -1,4 +1,4 @@
-<ng-container *ngFor="let paragraph of paragraphs let n = index">
+<ng-container *ngFor="let paragraph of paragraphs">
     <h3 [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'title'" [innerHtml]="paragraph.content"></h3>
     <h4 [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'subtitle'" [innerHtml]="paragraph.content"></h4>
     <p [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'paragraph'" [innerHtml]="paragraph.content"></p>
