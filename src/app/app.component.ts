@@ -1,4 +1,6 @@
+import { isPlatformBrowser } from '@angular/common';
 import { Component, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 declare var gtag;
@@ -10,17 +12,18 @@ declare var gtag;
 })
 export class AppComponent implements OnDestroy {
 
-  // routerSubscription: Subscription;
+  routerSubscription: Subscription;
 
-  // constructor(@Inject(PLATFORM_ID) private platformId: object) {
-                // this.routerSubscription = this.router.events.subscribe(event => {
-                //   if (event instanceof NavigationEnd && isPlatformBrowser(this.platformId)) {
-                //       gtag('config', 'G-MBJW38R751', { page_path: event.urlAfterRedirects });
-                //   }
-                // });
-  // }
+  constructor(@Inject(PLATFORM_ID) private platformId: object,
+              private router: Router) {
+                this.routerSubscription = this.router.events.subscribe(event => {
+                  if (event instanceof NavigationEnd && isPlatformBrowser(this.platformId)) {
+                      gtag('config', 'G-QKS5KT6XYE', { page_path: event.urlAfterRedirects });
+                  }
+                });
+  }
 
   ngOnDestroy() {
-    // this.routerSubscription.unsubscribe();
+    this.routerSubscription.unsubscribe();
   }
 }
