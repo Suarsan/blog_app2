@@ -59,6 +59,17 @@
         align-self: center;
         margin: 0 0 2rem 0;
     }
+    div.youtube-placeholder {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 400px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+    }
     iframe {
         width: 100%;
         height: auto;

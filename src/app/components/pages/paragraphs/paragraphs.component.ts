@@ -9,11 +9,16 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class ParagraphsComponent {
   
   @Input() paragraphs;
+  showVideo: boolean;
 
-  constructor(public domSanitizer: DomSanitizer) {}
+  constructor(public domSanitizer: DomSanitizer) { }
 
   public decode(e) {
     return JSON.parse(e);
+  }
+
+  public loadVideo() {
+    this.showVideo = true;
   }
 
 }
