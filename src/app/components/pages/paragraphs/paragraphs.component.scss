@@ -119,24 +119,31 @@
     }
     ul.wikiloc {
         list-style: none;
-        margin: 2rem;
+        margin: 0;
         padding: 0;
         >li {
+            background-color: ghostwhite;
+            border: 1px solid lightgrey;
             margin: 0 0 2rem 0;
+            padding: 1rem;
             >a {
                 font-size: 1.6rem;
-                font-weight: 400;
+                font-weight: 500;
             }
             >div {
                 display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
+                flex-direction: column;
+                margin: 1rem 0 0 0;
                 >span {
                     display: flex;
                     flex-direction: row;
+                    align-items: center;
                     font-size: 1.4rem;
-                    color: darkgray;
-                    margin: 0 0 0 2rem;
+                    font-weight: 500;
+                    > span {
+                        font-weight: 300;
+                        margin: 0 2rem 0 0;
+                    }
                     >meter {
                         width: 50px;
                         margin: 0 0 0 .5rem;

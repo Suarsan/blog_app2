@@ -12,8 +12,9 @@
         <li *ngFor="let wikiloc of decode(paragraph.content)">
             <a [href]="wikiloc.url">{{wikiloc.name}}</a>
             <div>
-                <span>{{wikiloc.km}}km · {{wikiloc.hard === 3 ? 'Difícil' : (wikiloc.hard === 2 ? 'Medio' : 'Fácil')}}</span>
-                <span>Valoración <meter [value]="wikiloc.rate" min="0" max="5" [value]="wikiloc.rate" max="5"></meter></span>
+                <span><span>Dificultad:</span>{{wikiloc.hard === 3 ? 'Difícil' : (wikiloc.hard === 2 ? 'Medio' : 'Fácil')}}</span>
+                <span><span>Longitud:</span>{{wikiloc.km}}km</span>
+                <span><span>Valoración</span><meter [value]="wikiloc.rate" min="0" max="5" [value]="wikiloc.rate" max="5"></meter></span>
             </div>
         </li>
     </ul>
