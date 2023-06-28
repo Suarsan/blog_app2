@@ -18,7 +18,7 @@
         </li>
     </ul>
     <ng-container *ngIf="paragraph?.htmlTag.content == 'video'">
-        <div *ngIf="!showVideo" class="youtube-placeholder" [style.backgroundImage]="'url(' + 'https://i.ytimg.com/vi/' + paragraph.content + '/hqdefault.jpg' + ')'" [style.width.px]="paragraph.content.split(';')[1]" [style.height.px]="paragraph.content.split(';')[2]">
+        <div *ngIf="!showVideo" class="youtube-placeholder" (click)="loadVideo()" [style.backgroundImage]="'url(' + 'https://i.ytimg.com/vi/' + paragraph.content + '/hqdefault.jpg' + ')'" [style.width.px]="paragraph.content.split(';')[1]" [style.height.px]="paragraph.content.split(';')[2]">
             <a [href]="'https://www.youtube.com/embed/' + paragraph.content.split(';')[0]" class="play"></a>
         </div>
         <iframe *ngIf="showVideo" [src]="domSanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + paragraph.content.split(';')[0])" [width]="paragraph.content.split(';')[1]" [height]="paragraph.content.split(';')[2]"
