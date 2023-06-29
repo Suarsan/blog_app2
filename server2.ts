@@ -1,17 +1,21 @@
-import 'zone.js/dist/zone-node';
-
+/***************************************************************************************************
+ * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
+ */
+import '@angular/localize/init';
+import 'zone.js/node';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
 import { join } from 'path';
-
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
+import { RESPONSE } from '@nguniversal/express-engine/tokens';
 import 'dotenv/config';
 
 // The Express app is exported so that it can be used by serverless Functions.
-export function app(): express.Express {
+export function app() {
   const server = express();
+  // const distFolder = join(process.cwd(), 'dist/bloggraphql/browser');
   const distFolder = join(process.cwd(), 'browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
@@ -24,7 +28,7 @@ export function app(): express.Express {
   server.set('views', distFolder);
 
   // Example Express Rest API endpoints
-  // server.get('/api/**', (req, res) => { });
+  // app.get('/api/**', (req, res) => { });
   // Serve static files from /browser
   server.get('*.*', express.static(distFolder, {
     maxAge: '1y'
@@ -32,19 +36,28 @@ export function app(): express.Express {
 
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {
-    res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
+    res.render(indexHtml, {
+      req,
+      providers: [{
+        provide: RESPONSE,
+        useValue: res
+      }, {
+        provide: APP_BASE_HREF,
+        useValue: req.baseUrl
+      }]
+    });
   });
 
   return server;
 }
 
-function run(): void {
-  const port = process.env.PORT;
+function run() {
+  const port = process.env.PORT || 4002;
 
   // Start up the Node server
   const server = app();
   server.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
+    console.log(`Node Express server listening on http://127.0.0.1:${port}`);
   });
 }
 
