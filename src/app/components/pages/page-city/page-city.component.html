@@ -12,4 +12,4 @@
         <iframe *ngIf="mapsCode" [src]="mapsCode" class="maps" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" [title]="post?.title.split('.')[0] + ' google maps coords'"></iframe>
     </aside>
 </div>
-<app-list *ngIf="relatedPosts" [title]="'Cerca de ' + post?.title.split('.')[0]" [posts]="relatedPosts"></app-list>
+<app-list [title]="'Cerca de ' + post?.title.split('.')[0]" [posts]="relatedPosts"></app-list>

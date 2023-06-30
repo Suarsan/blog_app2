@@ -1,5 +1,5 @@
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { makeStateKey, TransferState } from '@angular/platform-browser';
+import { Injectable } from '@angular/core';
+import { makeStateKey } from '@angular/platform-browser';
 import { map } from 'rxjs/operators';
 import { PostDaoService } from '../../../dao/post-dao-services/post-dao-service/post-dao.service';
 
@@ -10,9 +10,7 @@ const BRANDS = makeStateKey('brands');
 })
 export class PostService {
 
-  constructor(@Inject(PLATFORM_ID) private platformId: object,
-              private postDaoService: PostDaoService,
-              private transferState: TransferState) { }
+  constructor(private postDaoService: PostDaoService) { }
 
   public getPost(slug) {
     return this.postDaoService.getPost(slug).pipe(

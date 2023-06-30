@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { TagsDaoService } from 'src/app/dao/tags-dao-services/tags-dao-service/tags-dao.service';
 
 @Injectable({
@@ -11,7 +11,6 @@ export class TagsService {
 
   public getTags() {
     return this.tagsDaoService.getTags().pipe(
-      tap(o => o['data']['getTags']),
       map(o => o['data']['getTags'])
     );
   }

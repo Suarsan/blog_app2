@@ -1,13 +1,13 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { PostService } from 'src/app/services/post-services/post-service/post.service';
-import { tap, take, filter } from 'rxjs/operators';
+import { tap, take, filter, mergeMap } from 'rxjs/operators';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
 import { isPlatformServer } from '@angular/common';
-import { Subscription } from 'rxjs';
+import { EMPTY, Subscription } from 'rxjs';
 
 const POST = makeStateKey('post');
-const RELATEDPOSTS = makeStateKey('relatedposts');
+const RELATEDPOSTS = makeStateKey('relatedPosts');
 
 @Component({
   selector: 'app-page',
@@ -23,7 +23,12 @@ export class PageComponent implements OnInit {
   constructor(@Inject(PLATFORM_ID) private platformId: object,
               private router: Router,
               private postService: PostService,
-              private state: TransferState) { }
+              private state: TransferState) { 
+                this.post = this.state.get(POST, null);
+                this.relatedPosts = this.state.get(RELATEDPOSTS, null)
+                this.state.set(POST, null);
+                this.state.set(RELATEDPOSTS, null)
+              }
 
   ngOnInit() {
     this._getPost();
@@ -39,27 +44,26 @@ export class PageComponent implements OnInit {
   }
 
   private _getPost() {
-    this.post = this.state.get(POST, null);
-    this.state.set(POST, null);
     if (!this.post) {
       this.postService.getPost(this.router.url.split('/')[this.router.url.split('/').length - 1].replace(/#.*/, "")).pipe(
         take(1),
         tap(post => isPlatformServer(this.platformId) ? this.state.set(POST, post) : null),
         tap(post => post ? this.post = post : this.router.navigate(['/404'])),
-        tap(post => this.post.type.content === 'CITY' ? this._getRelatedPosts() : null)
+        mergeMap(post => this._getRelatedPosts(post.type.content))
       ).subscribe();
     }
   }
 
-  private _getRelatedPosts() {
-    this.relatedPosts = this.state.get(RELATEDPOSTS, null);
-    this.state.set(RELATEDPOSTS, null);
-    if (!this.relatedPosts) {
-      this.postService.getPostsByTag('near-' + this.router.url.split('/')[this.router.url.split('/').length - 1].replace(/#.*/, "")).pipe(
-        take(1),
-        tap(relatedPosts => isPlatformServer(this.platformId) ? this.state.set(RELATEDPOSTS, relatedPosts) : null),
-        tap(relatedPosts => relatedPosts ? this.relatedPosts = relatedPosts : [])
-      ).subscribe();
+  private _getRelatedPosts(postType) {
+    switch (postType) {
+      case 'CITY':
+        return this.postService.getPostsByTag('near-' + this.router.url.split('/')[this.router.url.split('/').length - 1].replace(/#.*/, "")).pipe(
+          take(1),
+          tap(relatedPosts => isPlatformServer(this.platformId) ? this.state.set(RELATEDPOSTS, relatedPosts) : null),
+          tap(relatedPosts => relatedPosts ? this.relatedPosts = relatedPosts : [])
+        );
+        default:
+          return EMPTY;
     }
   }
 
