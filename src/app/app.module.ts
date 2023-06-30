@@ -6,14 +6,10 @@ import { HttpLink } from 'apollo-angular/http';
 import { InMemoryCache } from '@apollo/client/core';
 import { APOLLO_OPTIONS } from 'apollo-angular';
 import { AppComponent } from './app.component';
-import { NotfoundComponent } from './components/notfound/notfound.component';
 import { environment } from 'src/environments/environment';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NotfoundComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     AppRoutingModule,
     HttpClientModule,
