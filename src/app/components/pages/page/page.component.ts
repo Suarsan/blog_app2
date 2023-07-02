@@ -24,10 +24,7 @@ export class PageComponent implements OnInit {
               private router: Router,
               private postService: PostService,
               private state: TransferState) { 
-                this.post = this.state.get(POST, null);
-                this.relatedPosts = this.state.get(RELATEDPOSTS, null)
-                this.state.set(POST, null);
-                this.state.set(RELATEDPOSTS, null)
+                
               }
 
   ngOnInit() {
@@ -44,6 +41,10 @@ export class PageComponent implements OnInit {
   }
 
   private _getPost() {
+    this.post = this.state.get(POST, null);
+    this.relatedPosts = this.state.get(RELATEDPOSTS, null)
+    this.state.set(POST, null);
+    this.state.set(RELATEDPOSTS, null)
     if (!this.post) {
       this.postService.getPost(this.router.url.split('/')[this.router.url.split('/').length - 1].replace(/#.*/, "")).pipe(
         take(1),
