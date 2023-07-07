@@ -4,9 +4,7 @@
             <article>
                 <img [src]="post?.image" [alt]="post.slug" loading="lazy">
                 <div [routerLink]="['/', post.parent?.slug, post.slug]">
-                    <a [routerLink]="['/', post.parent?.slug, post?.slug]">
-                        <h1>{{post?.title.split('.')[0]}}</h1>
-                    </a>
+                    <a [routerLink]="['/', post.parent?.slug, post?.slug]">{{post?.title.split('.')[0]}}</a>
                 </div>
             </article>
         </div>
