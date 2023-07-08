@@ -1,14 +1,14 @@
 <ng-container *ngFor="let paragraph of paragraphs">
-    <h3 [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'title'" [innerHtml]="paragraph.content"></h3>
-    <h4 [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'subtitle'" [innerHtml]="paragraph.content"></h4>
-    <p [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'paragraph'" [innerHtml]="paragraph.content"></p>
-    <strong [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'quote'" [innerHtml]="paragraph.content"></strong>
-    <span [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'summary'" [innerHtml]="paragraph.content"></span>
-    <img [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'image'" [src]="paragraph.content" [alt]="paragraph.content" loading="lazy">
-    <div [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'images'">
+    <h3 *ngIf="paragraph?.htmlTag.content == 'title'" [id]="paragraph.content | encodeuri" [innerHtml]="paragraph.content"></h3>
+    <h4 *ngIf="paragraph?.htmlTag.content == 'subtitle'" [id]="paragraph.content | encodeuri" [innerHtml]="paragraph.content"></h4>
+    <p *ngIf="paragraph?.htmlTag.content == 'paragraph'" [id]="paragraph.content | encodeuri" [innerHtml]="paragraph.content"></p>
+    <strong *ngIf="paragraph?.htmlTag.content == 'quote'" [id]="paragraph.content | encodeuri" [innerHtml]="paragraph.content"></strong>
+    <span *ngIf="paragraph?.htmlTag.content == 'summary'" [id]="paragraph.content | encodeuri" [innerHtml]="paragraph.content"></span>
+    <img *ngIf="paragraph?.htmlTag.content == 'image'" [id]="paragraph.content | encodeuri" [src]="paragraph.content" [alt]="paragraph.content" loading="lazy">
+    <div *ngIf="paragraph?.htmlTag.content == 'images'" [id]="paragraph.content | encodeuri" class="imgs">
         <img *ngFor="let image of paragraph.content.split(';')" [src]="image" [alt]="image" loading="lazy">
     </div>
-    <ul [id]="paragraph.content | encodeuri" *ngIf="paragraph?.htmlTag.content == 'wikiloc'" class="wikiloc">
+    <ul *ngIf="paragraph?.htmlTag.content == 'wikiloc'" [id]="paragraph.content | encodeuri" class="wikiloc">
         <li *ngFor="let wikiloc of decode(paragraph.content)">
             <a [href]="wikiloc.url">{{wikiloc.name}}</a>
             <div>
@@ -18,8 +18,9 @@
             </div>
         </li>
     </ul>
-    <ng-container *ngIf="paragraph?.htmlTag.content == 'video'">
-        <div *ngIf="!showVideo" class="youtube-placeholder" (click)="loadVideo()" [style.backgroundImage]="'url(https://i.ytimg.com/vi/' + paragraph.content.split(';')[0] + '/hqdefault.jpg)'" [style.width.px]="paragraph.content.split(';')[1]" [style.height.px]="paragraph.content.split(';')[2]">
+    <ng-container *ngIf="paragraph?.htmlTag.content === 'video'">
+        <div *ngIf="!showVideo" class="youtube-placeholder" (click)="loadVideo()">
+            <img [src]="'https://i.ytimg.com/vi/' + paragraph.content.split(';')[0] + '/hqdefault.jpg'" [alt]="'https://i.ytimg.com/vi/' + paragraph.content.split(';')[0] + '/hqdefault.jpg'" [style.width.px]="paragraph.content.split(';')[1]" [style.height.px]="paragraph.content.split(';')[2]" loading="lazy">
             <div></div>
         </div>
         <iframe *ngIf="showVideo" [src]="domSanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + paragraph.content.split(';')[0])" [width]="paragraph.content.split(';')[1]" [height]="paragraph.content.split(';')[2]"

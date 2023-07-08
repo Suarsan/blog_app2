@@ -42,7 +42,7 @@
             background-color: lightgrey;
         }
     }
-    >div {
+    >div.imgs {
         display: flex;
         flex-direction: row;
         align-self: flex-start;
@@ -65,21 +65,23 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        min-height: 400px;
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center center;
-        margin: 5rem 0;
+        margin: 1rem 0 2rem 0;
+        >img {
+            width: 100%;
+        }
         > div { 
             display: block;
             background: red;
             border-radius: 50% / 10%;
             color: #FFFFFF;
-            font-size: 2em; /* change this to change size */
+            font-size: 2em;
             height: 3em;
             margin: 20px auto;
             padding: 0;
-            position: relative;
+            position: absolute;
             text-align: center;
             text-indent: 0.1em;
             transition: all 150ms ease-out;
