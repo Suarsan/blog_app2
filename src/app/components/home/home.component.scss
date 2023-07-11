@@ -2,12 +2,21 @@
     display: flex;
     flex-direction: column;
     > div {
+        position: relative;
         display: flex;
         flex-direction: column;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, .25), rgba(0, 0, 0, .75)), url('../../../assets/images/lavera-background.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        overflow: hidden;
+        > img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 100vh;
+            transform: translate(-50%, -50%);
+            filter: brightness(.8);
+        }
+        > app-nav {
+            z-index: 1;
+        }
         > div {
             display: flex;
             flex-direction: column;
@@ -16,6 +25,7 @@
             height: 100vh;
             max-width: 552px;
             margin: 0 auto;
+            z-index: 1;
             > a {
                 margin: 10vh 0 0 10vw;
                 text-decoration: none;
@@ -33,7 +43,6 @@
                         font-weight: 600;
                     }
                 }
-                
             }
             > div {
                 display: flex;
@@ -48,12 +57,15 @@
                 > a {
                     margin: 5rem auto 15vh auto;
                     text-decoration: none;
-                    > span {
-                        font-size: 1.6rem;
-                        font-weight: 300;
-                        border: 1px solid white;
-                        padding: 1rem 2rem;
-                        color: white;
+                    font-size: 1.6rem;
+                    border: 1px solid white;
+                    padding: 1rem 2rem;
+                    font-weight: 300;
+                    color: white;
+                    text-shadow: 2px 2px 4px black;
+                    &:hover {
+                        background-color: white;
+                        color: black;
                     }
                 }
             }
@@ -109,6 +121,10 @@
 @media screen and (min-width: 1200px) {
     :host {
         > div {
+            > img {
+                height: auto;
+                width: 100vw;
+            }
             > div {
                 height: 45vh;
                 max-width: unset;
