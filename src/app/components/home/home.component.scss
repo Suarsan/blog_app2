@@ -12,7 +12,7 @@
             left: 50%;
             height: 100vh;
             transform: translate(-50%, -50%);
-            filter: brightness(.8);
+            filter: brightness(.75);
         }
         > app-nav {
             z-index: 1;
@@ -47,7 +47,7 @@
             > div {
                 display: flex;
                 flex-direction: column;
-                > p {
+                > h2, > p {
                     font-size: 1.6rem;
                     font-weight: 300;
                     color: white;
