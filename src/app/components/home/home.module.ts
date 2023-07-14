@@ -6,6 +6,7 @@ import { CardsModule } from '../cards/cards.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { PlannerComponent } from './planner/planner.component';
 import { NavModule } from '../nav/nav.module';
+import { FooterModule } from '../footer/footer.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NavModule } from '../nav/nav.module';
     HomeRoutingModule,
     PipesModule,
     CardsModule,
-    NavModule
+    NavModule,
+    FooterModule
   ],
   exports: [
     HomeComponent

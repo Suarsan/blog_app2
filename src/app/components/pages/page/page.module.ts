@@ -11,6 +11,7 @@ import { PageSeasonComponent } from '../page-season/page-season.component';
 import { PageDaysComponent } from '../page-days/page-days.component';
 import { NavModule } from '../../nav/nav.module';
 import { ParagraphsComponent } from '../paragraphs/paragraphs.component';
+import { FooterModule } from '../../footer/footer.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ParagraphsComponent } from '../paragraphs/paragraphs.component';
     CommonModule,
     PipesModule,
     CardsModule,
-    NavModule
+    NavModule,
+    FooterModule
   ],
   exports: []
 })
