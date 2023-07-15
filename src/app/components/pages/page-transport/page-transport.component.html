@@ -4,7 +4,7 @@
 </div>
 <div>
     <div>
-        <index [items]="post?.paragraphs"></index>
+        <index *ngIf="post?.paragraphs" [items]="post?.paragraphs"></index>
         <app-paragraphs [paragraphs]="post?.paragraphs"></app-paragraphs>
     </div>
     <aside>

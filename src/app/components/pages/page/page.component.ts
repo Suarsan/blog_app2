@@ -36,6 +36,7 @@ export class PageComponent implements OnInit {
     this.routerSubscription?.unsubscribe();
     this.routerSubscription = this.router.events.pipe(
       filter(o => o instanceof NavigationEnd),
+      filter(o => !(o as NavigationEnd).url.includes('#')),
       tap(o => this._getPost())
     ).subscribe();
   }

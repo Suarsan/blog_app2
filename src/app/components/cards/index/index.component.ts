@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss']
 })
-export class IndexComponent implements OnChanges {
+export class IndexComponent implements OnInit {
 
   @Input() items;
   structure;
@@ -16,7 +16,7 @@ export class IndexComponent implements OnChanges {
     this.routerLink = this.router.url.replace(/#.*/, "");
   }
 
-  ngOnChanges() {
+  ngOnInit() {
     const titles = [];
     this.items?.forEach(i => {
       if (i.htmlTag.content === 'title') { titles.push({ name: i.content, subtitles: [] }); }
