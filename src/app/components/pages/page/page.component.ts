@@ -46,7 +46,7 @@ export class PageComponent implements OnInit {
     this.state.set(POST, null);
     this.state.set(RELATEDPOSTS, null)
     if (!this.post) {
-      this.postService.getPost(this.router.url.split('/')[this.router.url.split('/').length - 1].replace(/#.*/, "")).pipe(
+      this.postService.getPost(this.router.url).pipe(
         take(1),
         tap(post => isPlatformServer(this.platformId) ? this.state.set(POST, post) : null),
         tap(post => post ? this.post = post : this.router.navigate(['/404'])),

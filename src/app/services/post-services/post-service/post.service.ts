@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { makeStateKey } from '@angular/platform-browser';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { PostDaoService } from '../../../dao/post-dao-services/post-dao-service/post-dao.service';
+import { EMPTY } from 'rxjs';
+import { Router } from '@angular/router';
 
 const BRANDS = makeStateKey('brands');
 
@@ -10,11 +12,16 @@ const BRANDS = makeStateKey('brands');
 })
 export class PostService {
 
-  constructor(private postDaoService: PostDaoService) { }
+  constructor(private postDaoService: PostDaoService,
+              private router: Router) { }
 
   public getPost(slug) {
     return this.postDaoService.getPost(slug).pipe(
-      map(o => o['data']['getEnabledPostBySlug'])
+      map(o => o['data']['getEnabledPostByUrl']),
+      catchError(err => {
+        this.router.navigate(['/404']);
+        return EMPTY;
+      })
     );
   }
   public getLastReviews() {

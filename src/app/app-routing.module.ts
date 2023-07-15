@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageComponent } from './components/pages/page/page.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule) },
-  { path: '404',  pathMatch: 'full', loadChildren: () => import('./components/notfound/notfound.module').then(m => m.NotfoundModule) },
+  { path: '404', component: NotfoundComponent, pathMatch: 'full', loadChildren: () => import('./components/notfound/notfound.module').then(m => m.NotfoundModule) },
   { path: 'privacy', pathMatch: 'full', loadChildren: () => import('./components/loyalty-privacy/loyalty-privacy.module').then(m => m.LoyaltyPrivacyModule) },
   { path: 'cookies', pathMatch: 'full', loadChildren: () => import('./components/loyalty-cookies/loyalty-cookies.module').then(m => m.LoyaltyCookiesModule) },
   { path: 'legal', pathMatch: 'full', loadChildren: () => import('./components/legal/legal.module').then(m => m.LegalModule) },

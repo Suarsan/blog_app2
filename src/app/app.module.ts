@@ -7,12 +7,14 @@ import { InMemoryCache } from '@apollo/client/core';
 import { APOLLO_OPTIONS } from 'apollo-angular';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
+import { NotfoundModule } from './components/notfound/notfound.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     AppRoutingModule,
     HttpClientModule,
+    NotfoundModule,
     BrowserModule.withServerTransition({ appId: 'bloglavera' }),
     BrowserTransferStateModule
   ],

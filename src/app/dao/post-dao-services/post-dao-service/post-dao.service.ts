@@ -8,10 +8,10 @@ export class PostDaoService {
 
   constructor(private apollo: Apollo) { }
 
-  public getPost(slug) {
-    const getEnabledPostBySlug = gql`
-      query getEnabledPostBySlug($slug: String!) {
-        getEnabledPostBySlug(slug:$slug) {
+  public getPost(url) {
+    const getEnabledPostByUrl = gql`
+      query getEnabledPostByUrl($url: String!) {
+        getEnabledPostByUrl(url:$url) {
           id
           slug
           title
@@ -58,9 +58,9 @@ export class PostDaoService {
       }
     `;
     return this.apollo.watchQuery({
-      query: getEnabledPostBySlug,
+      query: getEnabledPostByUrl,
       variables: {
-        slug
+        url
       }}).valueChanges;
   }
   public getPostsByType(typeId) {
