@@ -3,8 +3,8 @@
         <div *ngFor="let post of posts">
             <article>
                 <img [src]="post?.image" [alt]="post.slug" loading="lazy">
-                <div [routerLink]="['/', post.parent?.slug, post.slug]">
-                    <a [routerLink]="['/', post.parent?.slug, post?.slug]">{{post?.title.split('.')[0]}}</a>
+                <div [routerLink]="['/', parent?.slug || post.parent?.slug, post.slug]">
+                    <a [routerLink]="['/', parent?.slug || post.parent?.slug, post?.slug]">{{post?.title.split('.')[0]}}</a>
                 </div>
             </article>
         </div>

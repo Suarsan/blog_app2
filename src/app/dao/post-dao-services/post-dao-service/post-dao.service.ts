@@ -37,6 +37,7 @@ export class PostDaoService {
             id
             title
             slug
+            image
           }
           analysis {
             score

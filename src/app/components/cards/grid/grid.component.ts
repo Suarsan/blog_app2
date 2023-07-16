@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class GridComponent {
 
   @Input() posts;
+  @Input() parent;
 
   constructor() { }
 

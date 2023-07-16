@@ -1,12 +1,12 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { PostService } from 'src/app/services/post-services/post-service/post.service';
-import { tap, take, filter, mergeMap } from 'rxjs/operators';
+import { tap, take } from 'rxjs/operators';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
 import { isPlatformServer } from '@angular/common';
 import { EMPTY, Subscription } from 'rxjs';
+import { SeoService } from 'src/app/services/seo/seo.service';
 
-const POST = makeStateKey('post');
 const RELATEDPOSTS = makeStateKey('relatedPosts');
 
 @Component({
@@ -22,38 +22,20 @@ export class PageComponent implements OnInit {
 
   constructor(@Inject(PLATFORM_ID) private platformId: object,
               private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private seoService: SeoService,
               private postService: PostService,
-              private state: TransferState) { 
-                
-              }
+              private state: TransferState) { }
 
   ngOnInit() {
-    this._getPost();
-    this._routerSubscription();
-  }
-
-  private _routerSubscription() {
-    this.routerSubscription?.unsubscribe();
-    this.routerSubscription = this.router.events.pipe(
-      filter(o => o instanceof NavigationEnd),
-      filter(o => !(o as NavigationEnd).url.includes('#')),
-      tap(o => this._getPost())
-    ).subscribe();
-  }
-
-  private _getPost() {
-    this.post = this.state.get(POST, null);
-    this.relatedPosts = this.state.get(RELATEDPOSTS, null)
-    this.state.set(POST, null);
-    this.state.set(RELATEDPOSTS, null)
-    if (!this.post) {
-      this.postService.getPost(this.router.url).pipe(
-        take(1),
-        tap(post => isPlatformServer(this.platformId) ? this.state.set(POST, post) : null),
-        tap(post => post ? this.post = post : this.router.navigate(['/404'])),
-        mergeMap(post => this._getRelatedPosts(post.type.content))
-      ).subscribe();
-    }
+    this.router.routeReuseStrategy.shouldReuseRoute = (fut, curr) =>  { 
+     
+      // @ts-ignore
+      return fut._routerState.url.replace(/#.*/, "") === curr._routerState.url.replace(/#.*/, "");
+    };
+    this.post = this.activatedRoute.snapshot.data.post;
+    this._setMetaInfo(this.post);
+    this._getRelatedPosts(this.post.type.content).subscribe();
   }
 
   private _getRelatedPosts(postType) {
@@ -67,6 +49,16 @@ export class PageComponent implements OnInit {
         default:
           return EMPTY;
     }
+  }
+
+  private _setMetaInfo(post) {
+    this.seoService.setMetaTags({
+      title: post.metaTitle,
+      description: post.metaDescription,
+      slug: post.slug,
+      parent: post.parent,
+      image: post.image
+    });
   }
 
 }

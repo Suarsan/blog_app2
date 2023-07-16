@@ -11,7 +11,7 @@
 <div>
     <div>
         <app-paragraphs [paragraphs]="post?.paragraphs?.slice(0, 2)"></app-paragraphs>
-        <app-grid [posts]="children"></app-grid>
+        <app-grid [posts]="post?.children" [parent]="post"></app-grid>
         <app-paragraphs [paragraphs]="post?.paragraphs?.slice(2)"></app-paragraphs>
     </div>
     <aside>
