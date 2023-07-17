@@ -20,8 +20,6 @@
         >h1 {
             display: flex;
             flex-direction: column;
-            font-size: 2rem;
-            font-weight: 800;
             color: lightgrey;
             margin: 1rem 1rem 2rem 2rem;
             z-index: 1;
@@ -110,7 +108,6 @@
         >div:nth-of-type(1) {
             height: 500px;
             >h1 {
-                font-size: 4rem;
                 margin: 0 auto 5rem auto;
                 width: 991px;
                 >span {
