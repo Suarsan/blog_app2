@@ -113,10 +113,17 @@ h1 {
     font-size: 3rem;
     font-weight: 800;
 }
+h2 {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
 
 @media screen and (min-width: 991px) {
     h1 {
         font-size: 5rem;
+    }
+    h2 {
+        font-size: 1.8rem;
     }
 }
 
