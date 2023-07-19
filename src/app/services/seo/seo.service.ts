@@ -14,16 +14,16 @@ export class SeoService {
   public setMetaTags(config) {
     this.title.setTitle('🌍 ' + config.title);
     this.meta.updateTag({ name: 'title', content: '🌍 ' + config.title});
-    this.meta.updateTag({ name: 'description', content: '🌍 ' + config.description});
+    this.meta.updateTag({ name: 'description', content: config.description});
     this.meta.updateTag({ name: 'twitter:card', content: 'summary'});
     this.meta.updateTag({ name: 'twitter:site', content: '@descubrelavera'});
     this.meta.updateTag({ name: 'twitter:title', content: '🌍 ' + config.title});
-    this.meta.updateTag({ name: 'twitter:description', content: '🌍 ' + config.description});
+    this.meta.updateTag({ name: 'twitter:description', content: config.description});
     this.meta.updateTag({ name: 'twitter:image', content: config.image});
     this.meta.updateTag({ name: 'og:type', content: 'article'});
     this.meta.updateTag({ name: 'og:url', content: 'descubrelavera.com/' + (config.parent ? config.parent.slug + '/' : '') + config.slug });
     this.meta.updateTag({ name: 'og:title', content: '🌍 ' + config.title});
-    this.meta.updateTag({ name: 'og:description', content: '🌍 ' + config.description});
+    this.meta.updateTag({ name: 'og:description', content: config.description});
     this.meta.updateTag({ name: 'og:image', content: config.image});
     this._setCanonical(config);
     this._setHrefLang(config);
