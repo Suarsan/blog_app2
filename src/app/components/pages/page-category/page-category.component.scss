@@ -4,10 +4,11 @@
     >div:nth-of-type(1) {
         display: flex;
         flex-direction: column;
+        margin: 0 2rem;
         >h1 {
             display: flex;
             flex-direction: column;
-            margin: 5rem 1rem 2rem 3rem;
+            margin: 2rem 0 8rem 0;
             >span {
                 font-size: 1.4rem;
                 font-weight: 500;
@@ -15,19 +16,8 @@
                 margin-top: 1rem;
             }
         }
-        > span {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            font-size: 1.4rem;
-            color: lightgray;
-            margin: 5rem 0 1rem 3rem;
-            > svg {
-                width: 12px;
-                height: 12px;
-                fill: lightgray;
-                margin: 0 .25rem 0 1rem;
-            }
+        > app-rrss {
+            margin-top: 5em;
         }
     }
     >div:nth-of-type(2) {
@@ -37,7 +27,6 @@
         >div {
             display: flex;
             flex-direction: column;
-            margin: 1rem;
             > app-grid {
                 margin: 1rem 0 2rem 0;
             }
@@ -63,15 +52,13 @@
             width: 991px;
             margin: 0 auto;
             > h1 {
-                margin: 10rem 0 2rem 0;
                 > span {
                     font-size: 2rem;
-                    margin: 1rem 0 0 0;
                 }
             }
-            > span {
-                margin: 8rem 0 1rem 0;
-            } 
+            > app-rrss {
+                margin-top: 10em;
+            }
         }
         >div:nth-of-type(2) {
             width: 991px;

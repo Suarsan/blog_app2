@@ -8,5 +8,6 @@
         <app-paragraphs [paragraphs]="post?.paragraphs"></app-paragraphs>
     </div>
     <aside>
+        <app-rrss *ngIf="post" [post]="post" [hasTitle]="true"></app-rrss>
     </aside>
 </div>

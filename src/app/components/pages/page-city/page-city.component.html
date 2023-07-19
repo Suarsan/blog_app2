@@ -10,6 +10,7 @@
     </div>
     <aside>
         <app-analysis *ngIf="post?.analysis" [analysis]="post?.analysis"></app-analysis>
+        <app-rrss *ngIf="post" [post]="post" [hasTitle]="true"></app-rrss>
         <iframe *ngIf="mapsCode" [src]="mapsCode" class="maps" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" [title]="post?.title.split('.')[0] + ' google maps coords'"></iframe>
     </aside>
 </div>

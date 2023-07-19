@@ -12,6 +12,7 @@ import { PageDaysComponent } from '../page-days/page-days.component';
 import { NavModule } from '../../nav/nav.module';
 import { ParagraphsComponent } from '../paragraphs/paragraphs.component';
 import { FooterModule } from '../../footer/footer.module';
+import { RrssComponent } from '../rrss/rrss.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FooterModule } from '../../footer/footer.module';
     PageSeasonComponent,
     PageDaysComponent,
     PageCategoryComponent,
-    ParagraphsComponent
+    ParagraphsComponent,
+    RrssComponent
   ],
   imports: [
     CommonModule,

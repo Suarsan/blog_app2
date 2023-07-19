@@ -36,6 +36,11 @@
             flex-direction: column;
             margin: 2rem;
         }
+        >aside{
+            > app-rrss {
+                margin: 0rem auto 3rem auto
+            }
+        }
     }
 }
 
