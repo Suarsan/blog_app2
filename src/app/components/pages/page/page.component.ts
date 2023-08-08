@@ -35,6 +35,7 @@ export class PageComponent implements OnInit {
     };
     this.post = this.activatedRoute.snapshot.data.post;
     this._setMetaInfo(this.post);
+    this._setStructuredData(this.post);
     this._getRelatedPosts(this.post.type.content).subscribe();
   }
 
@@ -59,6 +60,35 @@ export class PageComponent implements OnInit {
       parent: post.parent,
       image: post.image
     });
+  }
+  
+  private _setStructuredData(post) {
+    const jsonMarkup = [{
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": 'Descubre la Vera',
+        "item": 'https://descubrelavera.com'
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": post.title,
+        "item": 'https://descubrelavera.com/' + post.slug
+      }]
+    }];
+    if (post.parent) {
+      jsonMarkup[0].itemListElement.push({
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.parent.title,
+        "item": 'https://descubrelavera.com/' + post.slug + '/' + post.parent.slug
+      })
+    }
+
+    this.seoService.setJSONLDMarkups(jsonMarkup);
   }
 
 }
