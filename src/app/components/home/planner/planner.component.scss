@@ -3,11 +3,13 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 4rem 2rem;
+    padding: 4rem 0;
     box-sizing: border-box;
     > p {
+        font-size: 2rem;
         color: black;
         margin: 1rem 2rem 2rem 1rem;
+        text-align: center;
     }
     > div {
         display: flex;
@@ -49,11 +51,7 @@
 
 @media screen and (min-width: 552px) {
     :host {
-        padding: 6rem 2rem;
-        > p {
-            font-size: 2rem;
-            margin: 2rem 2rem 3rem 1rem;
-        }
+        padding: 6rem 0;
         > div {
             max-width: 552px;
             > a {
@@ -64,7 +62,7 @@
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 768px) {
     :host {
         position: absolute;
         top: 27vh;
@@ -75,7 +73,7 @@
         }
         > div {
             justify-content: space-evenly;
-            max-width: 70vw;
+            max-width: 991px;
             width: 100%;
             > a {
                 flex-basis: calc(25% - 2rem - 2px);
@@ -88,10 +86,22 @@
                     height: 2rem;
                 }
                 > p {
-                    font-size: 1.6rem;
+                    font-size: 1.4rem;
                     font-weight: 600;
                     white-space: nowrap;
                     margin: 0;
+                }
+            }
+        }
+    } 
+}
+
+@media screen and (min-width: 991px) {
+    :host {
+        > div {
+            > a {
+                > p {
+                    font-size: 1.6rem;
                 }
             }
         }

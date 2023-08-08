@@ -10,9 +10,15 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            height: 100vh;
             transform: translate(-50%, -50%);
             filter: brightness(.75);
+            &#background-desktop {
+                display: none;
+                height: 100vh;
+            }
+            &#background-mobile {
+                width: 100vw;
+            }
         }
         > nav {
             z-index: 1;
@@ -107,23 +113,18 @@
     }
 }
 
-@media screen and (min-width: 992px) {
-    :host {
-        > section {
-            > div {
-                width: 768px;
-                margin: 0 auto;
-            }
-        }
-    }
-}
-
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 768px) {
     :host {
         > div {
             > img {
                 height: auto;
-                width: 100vw;
+                &#background-desktop {
+                    display: block;
+                    
+                }
+                &#background-mobile {
+                    display: none;
+                }
             }
             > div {
                 height: 45vh;
