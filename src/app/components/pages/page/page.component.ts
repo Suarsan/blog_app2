@@ -69,12 +69,6 @@ export class PageComponent implements OnInit {
       "itemListElement": [{
         "@type": "ListItem",
         "position": 1,
-        "name": 'Descubre la Vera',
-        "item": 'https://descubrelavera.com'
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
         "name": post.title,
         "item": 'https://descubrelavera.com/' + post.slug
       }]
@@ -82,7 +76,7 @@ export class PageComponent implements OnInit {
     if (post.parent) {
       jsonMarkup[0].itemListElement.push({
         "@type": "ListItem",
-        "position": 3,
+        "position": 2,
         "name": post.parent.title,
         "item": 'https://descubrelavera.com/' + post.slug + '/' + post.parent.slug
       })
