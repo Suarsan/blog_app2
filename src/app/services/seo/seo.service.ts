@@ -29,6 +29,20 @@ export class SeoService {
     this._setHrefLang(config);
   }
 
+  public _setNoIndex() {
+    this.meta.updateTag({ name: 'robots', content: 'noindex'});
+  }
+
+  public setJSONLDMarkups(json) {
+    const oldScripts = this.document.getElementsByClassName('structured-data');
+    Array.from(oldScripts).forEach(os => this.document.body.removeChild(os));
+    const script: HTMLScriptElement = this.document.createElement('script');
+    script.setAttribute('type', 'application/ld+json');
+    script.setAttribute('class', 'structured-data');
+    script.innerHTML = JSON.stringify(json);
+    this.document.body.appendChild(script);
+  }
+
   private _setCanonical(config) {
     this.document.querySelectorAll('link[rel=canonical]').forEach(l => l.remove());
     const link: HTMLLinkElement = this.document.createElement('link');
@@ -44,16 +58,6 @@ export class SeoService {
     link.setAttribute('hreflang', 'es');
     link.setAttribute('href', 'https://descubrelavera.com/' + (config.parent ? config.parent.slug + '/' : '') + config.slug);
     this.document.head.appendChild(link);
-  }
-
-  public setJSONLDMarkups(json) {
-    const oldScripts = this.document.getElementsByClassName('structured-data');
-    Array.from(oldScripts).forEach(os => this.document.body.removeChild(os));
-    const script: HTMLScriptElement = this.document.createElement('script');
-    script.setAttribute('type', 'application/ld+json');
-    script.setAttribute('class', 'structured-data');
-    script.innerHTML = JSON.stringify(json);
-    this.document.body.appendChild(script);
   }
 
 }

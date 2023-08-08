@@ -20,5 +20,6 @@ export class LoyaltyPrivacyComponent implements OnInit {
       description: 'Toda la información disponible acerca de los políticas de privacidad asociadas al sitio www.descubrelavera.com',
       slug: 'privacy'
     });
+    this.seoService._setNoIndex();
   }
 }

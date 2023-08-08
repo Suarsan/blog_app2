@@ -20,5 +20,6 @@ export class LoyaltyCookiesComponent implements OnInit {
       description: 'Toda la información disponible acerca de las cookies y políticas asociadas del sitio www.descubrelavera.com',
       slug: 'cookies'
     });
+    this.seoService._setNoIndex();
   }
 }

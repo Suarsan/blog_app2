@@ -20,6 +20,7 @@ export class LegalComponent implements OnInit {
       description: 'Toda la información disponible acerca de los temas legales y políticas asociadas con el sitio www.descubrelavera.com',
       slug: 'legal'
     });
+    this.seoService._setNoIndex();
   }
 
 }
