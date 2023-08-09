@@ -7,6 +7,7 @@
     <div>
         <index *ngIf="post?.paragraphs" [items]="post?.paragraphs"></index>
         <app-paragraphs [paragraphs]="post?.paragraphs"></app-paragraphs>
+        <app-faqs *ngIf="post.faqs?.length" [faqs]="post.faqs"></app-faqs>
     </div>
     <aside>
         <app-analysis *ngIf="post?.analysis" [analysis]="post?.analysis"></app-analysis>

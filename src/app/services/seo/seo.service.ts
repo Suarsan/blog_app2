@@ -33,14 +33,16 @@ export class SeoService {
     this.meta.updateTag({ name: 'robots', content: 'noindex'});
   }
 
-  public setJSONLDMarkups(json) {
+  public setJSONLDMarkups(jsons: Array<any>) {
     const oldScripts = this.document.getElementsByClassName('structured-data');
     Array.from(oldScripts).forEach(os => this.document.body.removeChild(os));
-    const script: HTMLScriptElement = this.document.createElement('script');
-    script.setAttribute('type', 'application/ld+json');
-    script.setAttribute('class', 'structured-data');
-    script.innerHTML = JSON.stringify(json);
-    this.document.body.appendChild(script);
+    for (let json of jsons) {
+      const script: HTMLScriptElement = this.document.createElement('script');
+      script.setAttribute('type', 'application/ld+json');
+      script.setAttribute('class', 'structured-data');
+      script.innerHTML = JSON.stringify(json);
+      this.document.body.appendChild(script);
+    }
   }
 
   private _setCanonical(config) {

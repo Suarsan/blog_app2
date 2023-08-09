@@ -63,7 +63,8 @@ export class PageComponent implements OnInit {
   }
   
   private _setStructuredData(post) {
-    const jsonMarkup = [{
+    const markupJSONs = [];
+    const breadcrumbListJSON = [{
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [{
@@ -74,15 +75,34 @@ export class PageComponent implements OnInit {
       }]
     }];
     if (post.parent) {
-      jsonMarkup[0].itemListElement.push({
+      breadcrumbListJSON[0].itemListElement.push({
         "@type": "ListItem",
         "position": 2,
         "name": post.parent.title,
         "item": 'https://descubrelavera.com/' + post.slug + '/' + post.parent.slug
       })
     }
+    markupJSONs.push(breadcrumbListJSON);
+    if (this.post.faqs?.length) {
+      const faqsJSON = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": []
+      }
+      for (let faq of this.post.faqs) {
+        faqsJSON.mainEntity.push({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        });
+      }
+      markupJSONs.push(faqsJSON);
+    }
 
-    this.seoService.setJSONLDMarkups(jsonMarkup);
+    this.seoService.setJSONLDMarkups(markupJSONs);
   }
 
 }

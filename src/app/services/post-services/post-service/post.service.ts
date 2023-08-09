@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
-import { makeStateKey } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import { EMPTY } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { PostDaoService } from '../../../dao/post-dao-services/post-dao-service/post-dao.service';
-import { EMPTY } from 'rxjs';
-import { Router } from '@angular/router';
-
-const BRANDS = makeStateKey('brands');
 
 @Injectable({
   providedIn: 'root'

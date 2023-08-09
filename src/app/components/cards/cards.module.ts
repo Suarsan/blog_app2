@@ -6,13 +6,15 @@ import { RouterModule } from '@angular/router';
 import { IndexComponent } from './index/index.component';
 import { ListComponent } from './list/list.component';
 import { AnalysisComponent } from './analysis/analysis.component';
+import { FaqsComponent } from './faqs/faqs.component';
 
 @NgModule({
   declarations: [
     GridComponent,
     IndexComponent,
     ListComponent,
-    AnalysisComponent
+    AnalysisComponent,
+    FaqsComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { AnalysisComponent } from './analysis/analysis.component';
     GridComponent,
     IndexComponent,
     ListComponent,
-    AnalysisComponent
+    AnalysisComponent,
+    FaqsComponent
   ]
 })
 export class CardsModule { }
