@@ -69,7 +69,6 @@ export class PageComponent implements OnInit {
     
     //set Faqs markups
     const faqs = this.post.paragraphs.filter(p => p.htmlTag.content === 'faq');
-    console.dir(faqs)
     if (faqs?.length) {
       markupJSONs.push(this.getFaqsMarkups(faqs));
     }
