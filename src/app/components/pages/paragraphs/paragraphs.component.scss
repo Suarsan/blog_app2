@@ -46,6 +46,23 @@
             margin: 1rem;
         }
     }
+    >div.faq {
+        display: flex;
+        flex-direction: column;
+        margin: 4rem 0;
+        border: 1px solid lightgrey;
+        > h3, p {
+            padding: 2rem;
+            margin: 0;
+        }
+        > h3 {
+            border-bottom: 1px solid lightgrey;
+            background-color: rgba(lightgrey, .5);
+        }
+        > p {
+            background-color: rgba(lightgrey, .05);
+        }
+    }
     >img {
         width: 100%;
         max-width: 100%;
