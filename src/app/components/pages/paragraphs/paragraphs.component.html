@@ -10,7 +10,7 @@
     </div>
     <ul *ngIf="paragraph?.htmlTag.content == 'wikiloc'" [id]="paragraph.content | encodeuri" class="wikiloc">
         <li *ngFor="let wikiloc of decode(paragraph.content)">
-            <a [href]="wikiloc.url">{{wikiloc.name}}</a>
+            <a [href]="wikiloc.url" target="_blank">{{wikiloc.name}}</a>
             <div>
                 <span><span>Dificultad:</span>{{wikiloc.hard === 3 ? 'Difícil' : (wikiloc.hard === 2 ? 'Medio' : 'Fácil')}}</span>
                 <span><span>Longitud:</span>{{wikiloc.km}}km</span>
@@ -27,7 +27,7 @@
             [title]="'https://www.youtube.com/embed/' + paragraph.content.split(';')[0]" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </ng-container>
     <div *ngIf="paragraph?.htmlTag.content === 'faq'" class="faq">
-        <h3 [innerHtml]="paragraph.content.split(';')[0]"></h3>
+        <h4 [innerHtml]="paragraph.content.split(';')[0]"></h4>
         <p [innerHtml]="paragraph.content.split(';')[1]"></p>
     </div>
 </ng-container>
