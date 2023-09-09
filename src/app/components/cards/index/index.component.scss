@@ -24,7 +24,7 @@
                 padding: 1.5rem 0;
             }
             >ul {
-                margin: 0 0 0 2rem;
+                margin: 0 0 0 3rem;
                 padding: 0;
                 >li {
                     display: flex;
@@ -45,11 +45,6 @@
         padding: 2rem;
         >ul {
             margin: 0 0 0 2rem;
-            >li {
-                >ul {
-                    margin: 0 0 0 2rem;
-                }
-            }
         }
     }
 }

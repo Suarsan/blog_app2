@@ -1,6 +1,6 @@
 <ng-container *ngFor="let paragraph of paragraphs">
-    <h3 *ngIf="paragraph?.htmlTag.content == 'title'" [id]="paragraph.content | encodeuri" [innerHtml]="paragraph.content"></h3>
-    <h4 *ngIf="paragraph?.htmlTag.content == 'subtitle'" [id]="paragraph.content | encodeuri" [innerHtml]="paragraph.content"></h4>
+    <h3 *ngIf="paragraph?.htmlTag.content == 'title'" [id]="paragraph.content | encodeuri" [innerHtml]="'✳️ ' + paragraph.content"></h3>
+    <h4 *ngIf="paragraph?.htmlTag.content == 'subtitle'" [id]="paragraph.content | encodeuri" [innerHtml]="'✔️ ' + paragraph.content"></h4>
     <p *ngIf="paragraph?.htmlTag.content == 'paragraph'" [id]="paragraph.content | encodeuri" [innerHtml]="paragraph.content"></p>
     <strong *ngIf="paragraph?.htmlTag.content == 'quote'" [id]="paragraph.content | encodeuri" [innerHtml]="paragraph.content"></strong>
     <span *ngIf="paragraph?.htmlTag.content == 'summary'" [id]="paragraph.content | encodeuri" [innerHtml]="paragraph.content"></span>
