@@ -5,7 +5,7 @@ import { TransferState, makeStateKey } from '@angular/platform-browser';
 import { isPlatformServer } from '@angular/common';
 import { PostService } from 'src/app/services/post-services/post-service/post.service';
 
-const POSTS = makeStateKey('posts');
+const UPDATEDPOSTS = makeStateKey('posts');
 
 @Component({
   selector: 'home',
@@ -14,7 +14,7 @@ const POSTS = makeStateKey('posts');
 })
 export class HomeComponent implements OnInit {
 
-  posts;
+  updatedPosts;
 
   constructor(@Inject(PLATFORM_ID) private platformId: object,
               private postService: PostService,
@@ -23,17 +23,17 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this._setMetaInfo();
-    this._getPosts();
+    this._getUpdatedPosts();
   }
 
-  private _getPosts() {
-    this.posts = this.state.get(POSTS, null);
-    this.state.set(POSTS, null);
-    if (!this.posts) {
+  private _getUpdatedPosts() {
+    this.updatedPosts = this.state.get(UPDATEDPOSTS, null);
+    this.state.set(UPDATEDPOSTS, null);
+    if (!this.updatedPosts) {
       this.postService.getPostsByTag('home').pipe(
         take(1),
-        tap(posts => isPlatformServer(this.platformId) ? this.state.set(POSTS, posts) : null),
-        tap(posts => this.posts = posts)
+        tap(posts => isPlatformServer(this.platformId) ? this.state.set(UPDATEDPOSTS, posts) : null),
+        tap(posts => this.updatedPosts = posts)
       ).subscribe();
     }
   }

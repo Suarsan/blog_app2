@@ -83,14 +83,32 @@
             display: flex;
             flex-direction: column;
             width: 100%;
-            > h3 {
-                font-weight: 300;
-                margin: 0 0 2rem 4rem;
-                letter-spacing: 1px;
-                > span {
-                    font-size: 2.4rem;
-                    font-weight: 800;
-                    color: #3e7538;
+            > article {
+                display: flex;
+                flex-direction: column;
+                margin: 2rem 0 10rem 2rem;
+                > h3 {
+                    font-weight: 300;
+                    margin: 0 0 1rem 0;
+                    letter-spacing: 1px;
+                    > span {
+                        font-size: 2.4rem;
+                        font-weight: 800;
+                        color: #3e7538;
+                    }
+                }
+                > h4 {
+                    font-weight: 300;
+                    margin: 0 0 2rem 0;
+                    letter-spacing: 1px;
+                    > span {
+                        font-size: 2.4rem;
+                        font-weight: 800;
+                        color: #3e7538;
+                    }
+                }
+                > h5 {
+                    font-weight: 300;
                 }
             }
         }
