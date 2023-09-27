@@ -57,7 +57,7 @@ export class SeoService {
     this.document.querySelectorAll('link[rel=alternate]').forEach(l => l.remove());
     const link: HTMLLinkElement = this.document.createElement('link');
     link.setAttribute('rel', 'alternate');
-    link.setAttribute('hreflang', 'es');
+    link.setAttribute('hreflang', 'es-es');
     link.setAttribute('href', 'https://descubrelavera.com/' + (config.parent ? config.parent.slug + '/' : '') + config.slug);
     this.document.head.appendChild(link);
   }
