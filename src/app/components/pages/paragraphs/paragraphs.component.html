@@ -27,7 +27,7 @@
             [title]="'https://www.youtube.com/embed/' + paragraph.content.split(';')[0]" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </ng-container>
     <div *ngIf="paragraph?.htmlTag.content === 'faq'" class="faq">
-        <h4 [innerHtml]="paragraph.content.split(';')[0]"></h4>
+        <h4 [id]="paragraph.content.split(';')[0] | encodeuri" [innerHtml]="paragraph.content.split(';')[0]"></h4>
         <p [innerHtml]="paragraph.content.split(';')[1]"></p>
     </div>
 </ng-container>
