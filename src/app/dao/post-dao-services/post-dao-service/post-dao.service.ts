@@ -15,6 +15,7 @@ export class PostDaoService {
           id
           slug
           title
+          updatedAt
           image
           metaTitle
           metaDescription

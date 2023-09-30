@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'privacy', pathMatch: 'full', loadChildren: () => import('./components/loyalty-privacy/loyalty-privacy.module').then(m => m.LoyaltyPrivacyModule) },
   { path: 'cookies', pathMatch: 'full', loadChildren: () => import('./components/loyalty-cookies/loyalty-cookies.module').then(m => m.LoyaltyCookiesModule) },
   { path: 'legal', pathMatch: 'full', loadChildren: () => import('./components/legal/legal.module').then(m => m.LegalModule) },
-  { path: '**', component: PageComponent, resolve: { post: RoutingResolver}, loadChildren: () => import('./components/pages/page/page.module').then(m => m.PageModule) }
+  { path: '**', component: PageComponent, resolve: { post: RoutingResolver}, loadChildren: () => import('./components/pages/page.module').then(m => m.PageModule) }
 ];
 
 @NgModule({
