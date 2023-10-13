@@ -21,11 +21,11 @@
             margin: .5rem 0;
             font-size: 1.4rem;
             > span {
-                font-weight: 500;
+                font-weight: 400;
                 margin: 0 1rem .5rem 0;
             }
             > span:nth-of-type(1) {
-                font-weight: 400;
+                font-weight: 500;
             }
             &.inline {
                 flex-direction: row;
