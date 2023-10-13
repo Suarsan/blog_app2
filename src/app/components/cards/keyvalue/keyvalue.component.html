@@ -1,0 +1,7 @@
+<h3>{{ title }}</h3>  
+<ul>
+    <li *ngFor="let item of data?.split(';')" [class.inline]="inline">
+        <span [innerHtml]="item.split('|').splice(0,1)"></span>
+        <span *ngFor="let value of item.split('|').splice(1)" [innerHtml]="value"></span>
+    </li>
+</ul>
