@@ -1,10 +1,8 @@
 <div>
-    <div [style.background]="'linear-gradient(180deg, rgba(255, 251, 251, 0) 0%, rgba(0, 0, 0, 0.15) 65%, rgba(0, 0, 0, 0.56) 75%, rgba(0, 0, 0, 1) 100%), url(' + post?.image + ')'"></div>
-    <h2>{{post?.parent?.title?.split('.')[0]}}</h2>
-    <h1>{{post?.title.split('.')[0]}}<span>{{post?.title.split('.')[1]}}</span></h1>
-</div>
-<div>
     <div>
+        <h2>{{post?.parent?.title?.split('.')[0]}}</h2>
+        <h1>{{post?.title.split('.')[0]}}<span>{{post?.title.split('.')[1]}}</span></h1>
+        <app-rrss *ngIf="post" [post]="post"></app-rrss>
         <index *ngIf="post?.paragraphs" [items]="post?.paragraphs"></index>
         <app-paragraphs [paragraphs]="post?.paragraphs"></app-paragraphs>
     </div>
