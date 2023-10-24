@@ -10,7 +10,7 @@ export class PageCityComponent implements OnChanges {
 
   @Input() post;
   @Input() relatedPosts;
-  mapsCode;
+  mapsUrl;
   aboutInfo;
   phonesInfo;
 
@@ -32,7 +32,7 @@ export class PageCityComponent implements OnChanges {
   }
 
   private _setMapsCode(post) {
-    return this.mapsCode = this.domSanitizer.bypassSecurityTrustResourceUrl('https://www.google.com/maps/embed?pb=' + post?.paragraphs?.find(p => p?.htmlTag?.content === 'maps' )?.content);
+    return this.mapsUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(post?.paragraphs?.find(p => p?.htmlTag?.content === 'maps' )?.content);
   }
   
   private _setAboutInfo(post) {

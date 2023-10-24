@@ -11,7 +11,7 @@
         <app-keyvalue *ngIf="aboutInfo" [title]="'Acerca de ' + post?.title.split('.')[0]" [data]="aboutInfo" [inline]="true"></app-keyvalue>
         <app-keyvalue *ngIf="phonesInfo" [title]="'Teléfonos de interés'" [data]="phonesInfo"></app-keyvalue>
         <app-rrss *ngIf="post" [post]="post" [hasTitle]="true"></app-rrss>
-        <iframe *ngIf="mapsCode" [src]="mapsCode" class="maps" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" [title]="post?.title.split('.')[0] + ' google maps coords'"></iframe>
+        <iframe *ngIf="mapsUrl" [src]="mapsUrl" class="maps" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" [title]="'Mapa turístico de ' + post?.title.split('.')[0]"></iframe>
     </aside>
 </div>
-<app-list [title]="'Cerca de ' + post?.title.split('.')[0]" [posts]="relatedPosts"></app-list>
+<app-list [title]="'Qué ver cerca de ' + post?.title.split('.')[0]" [posts]="relatedPosts"></app-list>
