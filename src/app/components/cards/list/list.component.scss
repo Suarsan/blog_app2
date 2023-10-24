@@ -141,6 +141,9 @@
 @media screen and (min-width: 1200px) {
     :host {
         > section {
+            > h3 {
+                padding-left: calc((100% - 1200px)/2);
+            }
             > div {
                 > div {
                     padding-left: calc((100% - 1200px)/2);
