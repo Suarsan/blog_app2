@@ -8,10 +8,10 @@
     </div>
     <aside>
         <app-analysis *ngIf="post?.analysis" [analysis]="post?.analysis"></app-analysis>
+        <iframe *ngIf="mapsUrl" [src]="mapsUrl" class="maps" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" [title]="'Mapa turístico de ' + post?.title.split('.')[0]"></iframe>
         <app-keyvalue *ngIf="aboutInfo" [title]="'Acerca de ' + post?.title.split('.')[0]" [data]="aboutInfo" [inline]="true"></app-keyvalue>
         <app-keyvalue *ngIf="phonesInfo" [title]="'Teléfonos de interés'" [data]="phonesInfo"></app-keyvalue>
         <app-rrss *ngIf="post" [post]="post" [hasTitle]="true"></app-rrss>
-        <iframe *ngIf="mapsUrl" [src]="mapsUrl" class="maps" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" [title]="'Mapa turístico de ' + post?.title.split('.')[0]"></iframe>
     </aside>
 </div>
 <app-list [title]="'Qué ver cerca de ' + post?.title.split('.')[0]" [posts]="relatedPosts"></app-list>
