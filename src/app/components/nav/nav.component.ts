@@ -9,6 +9,4 @@ export class NavComponent {
   
   @Input() extended;
 
-  constructor() {}
-
 }

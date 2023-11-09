@@ -10,6 +10,4 @@ export class GridComponent {
   @Input() posts;
   @Input() parent;
 
-  constructor() { }
-
 }

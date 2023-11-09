@@ -10,6 +10,4 @@ export class ListComponent {
   @Input() title;
   @Input() posts;
 
-  constructor() { }
-
 }
