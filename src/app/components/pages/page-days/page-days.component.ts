@@ -1,7 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { makeStateKey, DomSanitizer } from '@angular/platform-browser';
-
-const POSTS = makeStateKey('posts');
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'page-days',
