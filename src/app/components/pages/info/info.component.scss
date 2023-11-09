@@ -9,13 +9,12 @@
         flex-direction: row;
         align-items: center;
         font-size: 1.6rem;
-        font-weight: 300;
         font-style: italic;
-        color: $medium-color;
+        color: $dark-color;
         margin: 0 2rem .5rem 0;
         > svg {
             height: 14px;
-            fill: $medium-color;
+            fill: $dark-color;
             margin: 0 .5rem 0 2rem;
         }
     }
