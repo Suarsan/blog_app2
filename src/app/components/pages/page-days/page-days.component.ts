@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'page-days',
@@ -9,8 +8,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class PageDaysComponent {
 
   @Input() post;
-
-  constructor(public domSanitizer: DomSanitizer) { }
 
   public decode(e) {
     return JSON.parse(e);

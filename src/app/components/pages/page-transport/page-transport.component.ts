@@ -1,6 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
-
 
 @Component({
   selector: 'page-transport',
@@ -10,8 +8,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class PageTransportComponent {
 
   @Input() post;
-
-  constructor(public domSanitizer: DomSanitizer) { }
 
   public decode(e) {
     return JSON.parse(e);

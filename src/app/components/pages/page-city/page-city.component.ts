@@ -14,7 +14,7 @@ export class PageCityComponent implements OnChanges {
   aboutInfo;
   phonesInfo;
 
-  constructor(private domSanitizer: DomSanitizer) { }
+  constructor(private ds: DomSanitizer) { }
 
   ngOnChanges() {
     this._setMapsCode(this.post);
@@ -32,7 +32,7 @@ export class PageCityComponent implements OnChanges {
   }
 
   private _setMapsCode(post) {
-    return this.mapsUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(post?.paragraphs?.find(p => p?.htmlTag?.content === 'maps' )?.content);
+    return this.mapsUrl = this.ds.bypassSecurityTrustResourceUrl(post?.paragraphs?.find(p => p?.htmlTag?.content === 'maps' )?.content);
   }
   
   private _setAboutInfo(post) {

@@ -11,7 +11,7 @@ export class ParagraphsComponent {
   @Input() paragraphs;
   showVideo: boolean;
 
-  constructor(public domSanitizer: DomSanitizer) { }
+  constructor(public ds: DomSanitizer) { }
 
   public decode(e) {
     return JSON.parse(e);
