@@ -66,6 +66,14 @@
         align-self: center;
         margin: 0 0 2rem 0;
     }
+    div.vip {
+        > img {
+            float: left;
+            width: 200px;
+            height: auto;
+            margin: 1rem 2rem 2rem 0;
+        }
+    }
     div.youtube-placeholder {
         display: flex;
         flex-direction: column;

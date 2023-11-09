@@ -30,4 +30,8 @@
         <h4 [id]="paragraph.content.split(';')[0] | encodeuri" [innerHtml]="paragraph.content.split(';')[0]"></h4>
         <p [innerHtml]="paragraph.content.split(';')[1]"></p>
     </div>
+    <div *ngIf="paragraph?.htmlTag.content === 'vip'" class="vip">
+        <img [src]="paragraph.content.split(';')[1]" [alt]="paragraph.content.split(';')[1]">
+        <p>{{ paragraph.content.split(';')[0] }}</p>
+    </div>
 </ng-container>
