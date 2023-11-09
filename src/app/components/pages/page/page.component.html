@@ -5,5 +5,5 @@
 <page-transport *ngIf="post?.type.content === 'TRANSPORT'" [post]="post"></page-transport>
 <page-days *ngIf="post?.type.content === 'DAYS'" [post]="post"></page-days>
 <page-category *ngIf="post?.type.content === 'CATEGORY'" [post]="post"></page-category>
-<app-info [post]="post"></app-info>
+<span appInfo [post]="post"></span>
 <footer></footer>
