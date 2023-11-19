@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-analysis',
+  selector: 'section[appAnalysis]',
   templateUrl: './analysis.component.html',
   styleUrls: ['./analysis.component.scss']
 })
