@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-keyvalue',
+  selector: 'section[appKeyValue]',
   templateUrl: './keyvalue.component.html',
   styleUrls: ['./keyvalue.component.scss']
 })
