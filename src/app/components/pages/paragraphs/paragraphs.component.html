@@ -4,6 +4,7 @@
     <p *ngIf="paragraph?.htmlTag.content == 'paragraph'" [id]="paragraph.content | encodeuri" [innerHtml]="paragraph.content"></p>
     <strong *ngIf="paragraph?.htmlTag.content == 'quote'" [id]="paragraph.content | encodeuri" [innerHtml]="paragraph.content"></strong>
     <span *ngIf="paragraph?.htmlTag.content == 'summary'" [id]="paragraph.content | encodeuri" [innerHtml]="paragraph.content"></span>
+    <em *ngIf="paragraph?.htmlTag.content == 'internal-link'" [innerHtml]="paragraph.content"></em>
     <img *ngIf="paragraph?.htmlTag.content == 'image'" [id]="paragraph.content | encodeuri" [src]="paragraph.content" [alt]="paragraph.content" loading="lazy">
     <div *ngIf="paragraph?.htmlTag.content == 'images'" [id]="paragraph.content | encodeuri" class="imgs">
         <img *ngFor="let image of paragraph.content.split(';')" [src]="image" [alt]="image" loading="lazy">

@@ -35,6 +35,13 @@
             background-color: lightgrey;
         }
     }
+    >em {
+        display: block;
+        border-left: 8px solid lightgray;
+        font-size: 3rem;
+        margin: 5rem 0;
+        padding: 5rem 0 5rem 5rem;
+    }
     >div.imgs {
         display: flex;
         flex-direction: row;
