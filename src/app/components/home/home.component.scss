@@ -1,115 +1,82 @@
+@import '../../../colors';
+
 :host {
     display: flex;
     flex-direction: column;
-    > div {
+    > header {
         position: relative;
         display: flex;
         flex-direction: column;
-        overflow: hidden;
-        > img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            filter: brightness(.75);
-            &#background-desktop {
-                display: none;
-                height: 100vh;
-            }
-            &#background-mobile {
-                width: 100vw;
-            }
-        }
-        > nav {
-            z-index: 1;
-        }
+        width: 100%;
+        height: 100dvh;
         > div {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            position: absolute;
+            overflow: hidden;
             width: 100%;
-            height: 100vh;
-            max-width: 552px;
-            margin: 0 auto;
-            z-index: 1;
-            > a {
-                margin: 10vh 0 0 10vw;
-                text-decoration: none;
-                > h1 {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    font-size: 3.5rem;
-                    font-weight: 400;
-                    letter-spacing: 1px;
-                    color: white;
-                    text-shadow: 2px 2px 4px black;
-                    > span {
-                        font-size: 7rem;
-                        font-weight: 600;
-                    }
+            height: 100%;
+            > img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                filter: brightness(.65);
+                &#background-desktop {
+                    display: none;
+                    height: 100vh;
+                }
+                &#background-mobile {
+                    width: 100vw;
                 }
             }
-            > div {
+        }
+        > a {
+            z-index: 1;
+            margin: 10vh auto 0 auto;
+            text-decoration: none;
+            > h1 {
                 display: flex;
                 flex-direction: column;
-                > h2 {
-                    font-size: 1.6rem;
-                    font-weight: 300;
-                    color: white;
-                    margin: 0 3rem;
-                    line-height: 2rem;
-                } 
-                > a {
-                    margin: 5rem auto 15vh auto;
-                    text-decoration: none;
-                    font-size: 1.6rem;
-                    border: 1px solid rgba(255, 255, 255, .75);
-                    padding: 1rem 2rem;
+                font-size: 4rem;
+                font-weight: 400;
+                letter-spacing: 1px;
+                color: white;
+                text-shadow: 2px 2px 4px black;
+                > span {
+                    font-size: 7rem;
                     font-weight: 600;
-                    color: #195912;
-                    background-color: rgba(255, 255, 255, .75);
-                    letter-spacing: 2px;
                 }
             }
         }
     }
-    > section {
+    > main {
         display: flex;
-        flex-direction: row;
-        background-color: rgb(238, 238, 238);
-        padding: 4rem 2rem;
-        > div {
+        flex-direction: column;
+        background-color: $light-color;
+        > section {
             display: flex;
             flex-direction: column;
-            width: 100%;
             > article {
                 display: flex;
                 flex-direction: column;
-                margin: 2rem 0 10rem 2rem;
-                > h3 {
+                padding: 3rem 2rem 5rem 2rem;
+                > h3, h4 {
                     font-weight: 300;
-                    margin: 0 0 1rem 0;
                     letter-spacing: 1px;
                     > span {
                         font-size: 2.4rem;
                         font-weight: 800;
-                        color: #3e7538;
+                        color: $dark-green;
                     }
                 }
-                > h4 {
-                    font-weight: 300;
-                    margin: 0 0 2rem 0;
-                    letter-spacing: 1px;
-                    > span {
-                        font-size: 2.4rem;
-                        font-weight: 800;
-                        color: #3e7538;
-                    }
-                }
-                > h5 {
-                    font-weight: 300;
-                }
+                > img {
+                    margin: 5rem 0;
+                }   
+            }
+            &:nth-child(2n+1) {
+                background-color: white;
+            }
+            &:first-child {
+                background-color: initial;
             }
         }
     }
@@ -117,11 +84,12 @@
 
 @media screen and (min-width: 575px) {
     :host {
-        > section {
-            padding: 6rem 2rem;
-            > div {
-                width: 575px;
-                margin: 0 auto;
+        > main {
+            > section {
+                > article {
+                    width: 500px;
+                    margin: 0 auto;
+                }
             }
         }
     }
@@ -129,43 +97,53 @@
 
 @media screen and (min-width: 768px) {
     :host {
-        > div {
-            > img {
-                height: auto;
-                &#background-desktop {
-                    display: block;
-                    
-                }
-                &#background-mobile {
-                    display: none;
+        > header {
+            height: 45dvh;
+            > div {
+                > img {
+                    &#background-desktop {
+                        display: block;
+                        height: auto;
+                    }
+                    &#background-mobile {
+                        display: none;
+                    }
                 }
             }
-            > div {
-                height: 45vh;
-                max-width: unset;
-                > a {
-                    margin-top: 5vh;
-                }
-                > div {
-                    display: none;
-                }
+            > a {
+                margin: 5vh auto 0 5vw;
             }
         }
-        > section {
-            padding-top: 20rem;
-            > div {
-                width: 992px;
-                margin: 0 auto;
+        > main {
+            padding-top: 15rem;
+            > section {
+                > article {
+                    width: 700px;
+                }
             }
         }
     }
 }
+
+@media screen and (min-width: 1200px) {
+    :host {
+        > main {
+            > section {
+                > article {
+                    width: 1000px;
+                }
+            }
+        }
+    }
+}
+
 @media screen and (min-width: 1600px) {
     :host {
-        > section {
-            > div {
-                width: 1200px;
-                margin: 0 auto;
+        > main {
+            > section {
+                > article {
+                    width: 1200px;
+                }
             }
         }
     }

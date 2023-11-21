@@ -1,44 +1,43 @@
+@import '../../../../colors';
+
 :host {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: absolute;
     width: 100%;
-    padding: 4rem 0;
+    bottom: 0;
+    padding: 2rem 1rem;
+    background-color: rgba($dark-green, .5);
+    border-radius: 1rem 1rem 0 0;
     box-sizing: border-box;
-    > p {
-        font-size: 2rem;
-        color: black;
-        margin: 1rem 2rem 2rem 1rem;
-        text-align: center;
-    }
     > div {
         display: flex;
         flex-direction: row;
+        width: 100%;
+        justify-content: center;
         flex-wrap: wrap;
         > a {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            flex-basis: calc(50% - 1rem - 2px);
+            text-align: center;
+            flex-basis: calc(50% - 4rem);
             height: 150px;
-            color: black;
-            margin: .5rem;
-            border-radius: 5px;
+            margin: 1rem;
+            padding: 1rem;
+            border-radius: 1rem;
             box-shadow: rgba(149, 157, 165, 0.4) 2px 2px 8px;
             text-decoration: none;
+            color: black;
             background-color: white;
+            font-size: 1.6rem;
             > svg {
                 width: 3rem;
                 height: 3rem;
                 fill: #549f4c;
-                overflow: visible;
-            }
-            > p {
-                font-size: 1.3rem;
-                text-align: center;
-                margin: 1rem 0 0 0;
-                color: black;
+                margin-bottom: 2rem;
             }
             &:hover {
                 transform: translateY(-2px);
@@ -49,60 +48,15 @@
     }
 }
 
-@media screen and (min-width: 552px) {
-    :host {
-        padding: 6rem 0;
-        > div {
-            max-width: 552px;
-            > a {
-                flex-basis: calc(50% - 2rem - 2px);
-                margin: 1rem;
-            }
-        }
-    }
-}
-
 @media screen and (min-width: 768px) {
     :host {
-        position: absolute;
-        top: 27vh;
-        > p {
-            font-weight: 300;
-            color: white;
-            margin: 4rem 2rem 2rem 2rem;
-        }
+        bottom: unset;
+        top: 35vh;
+        background-color: initial;
         > div {
-            justify-content: space-evenly;
-            max-width: 991px;
-            width: 100%;
+            max-width: 1200px;
             > a {
-                flex-basis: calc(25% - 2rem - 2px);
-                > svg {
-                    margin-bottom: 1.5rem;
-                    border: 2px solid #549f4c;
-                    border-radius: 50%;
-                    padding: 1.25rem;
-                    width: 2rem;
-                    height: 2rem;
-                }
-                > p {
-                    font-size: 1.4rem;
-                    font-weight: 600;
-                    white-space: nowrap;
-                    margin: 0;
-                }
-            }
-        }
-    } 
-}
-
-@media screen and (min-width: 991px) {
-    :host {
-        > div {
-            > a {
-                > p {
-                    font-size: 1.6rem;
-                }
+                flex-basis: calc(25% - 4rem);
             }
         }
     } 

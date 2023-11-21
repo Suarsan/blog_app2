@@ -1,37 +1,47 @@
-<div>
-    <img id="background-desktop" src="assets/images/lavera-background-desktop.jpg" alt="descubre-la-vera-desktop" load="lazy">
-    <img id="background-mobile" src="assets/images/lavera-background-mobile.jpg" alt="descubre-la-vera-mobile" load="lazy">
-    <nav></nav>
+<nav></nav>
+<header>
     <div>
-        <a href="/">
-            <h1>Descubre <span>La Vera</span></h1>
-        </a>
-        <div>
-            <h2>Disfruta de la comarca de La Vera de una forma inteligente. Somos expertos en la comarca de la Vera.</h2>
-            <h2>Te ayudaremos a planificar tu viaje para que sea un éxito. Podemos contarte todos los secretos de un pueblo en concreto. Indicarte dónde ir si vienes con amigos, en pareja o en familia. Cómo aprovechar al máximo tu viaje si sólo dispones de un fin de semana o por dónde empezar si tienes toda una semana. Qué sitios son los ideales para disfrutar de las piscinas naturales o las mejores rutas de senderismo o bicicleta. Pulsa en comenzar para encontrar lo que estás buscando.</h2>
-            <a routerLink="./" fragment="nav">COMENZAR</a>
-        </div>
+        <img id="background-desktop" src="assets/images/lavera-background-desktop.jpg" alt="descubre-la-vera-desktop" load="lazy">
+        <img id="background-mobile" src="assets/images/lavera-background-mobile.jpg" alt="descubre-la-vera-mobile" load="lazy">
     </div>
-</div>
-<app-planner id="nav"></app-planner>
-<section>
-    <aside></aside>
-    <div>
+    <a href="/">
+        <h1>Descubre <span>La Vera</span></h1>
+    </a>
+    <app-planner></app-planner>
+</header>
+<main>
+    <section>
         <article>
-            <h4 style="text-align: center"><span>¿Estás pensando en viajar a la comarca de la Vera?</span></h4>
+            <h3>ÚLTIMOS <span>POSTS</span></h3>
+            <h4>Disfruta de la comarca de La Vera de una forma inteligente. Te ayudaremos a planificar tu viaje para que sea un éxito. Podemos contarte todos los secretos de un pueblo en concreto. 
+                Indicarte dónde ir si vienes con amigos, en pareja o en familia. Cómo aprovechar al máximo tu viaje si sólo dispones de un fin de semana o por dónde empezar si tienes toda una semana. 
+                Qué sitios son los ideales para disfrutar de las piscinas naturales o las mejores rutas de senderismo o bicicleta.</h4>
+            
+            <app-grid [posts]="updatedPosts"></app-grid>
+        </article>
+    </section>
+    <section>
+        <article>
+            <h3 style="text-align: center"><span>Somos expertos en la comarca de la Vera.</span></h3>
+            <h4>Lo último de lo último. La información más actualizada sobre la comarca de la Vera para que no te pierdas nada. 
+                No solo hemos recopilado todo lo que necesitas saber sobre la comarca de la Vera. Si no que además seguimos trabajando para mantenerlo al día, con las últimas novedades.</h4>
+        </article>
+    </section>
+    <section>
+        <article>
+            <h3>MAPA DE <span>LA VERA</span></h3>
+            <img src="../../../assets/images/mapadelavera.jpg" alt="Mapa de la comarca de la Vera" loading="lazy">
+        </article>
+    </section>
+    <section>
+        <article>
+            <h3 style="text-align: center"><span>Todo lo que necesitas saber si vienes a la Vera.</span></h3>
             <h4>Te ayudamos a descubrir la comarca de la Vera y a planificar tu viaje para que sea un éxito. 
                 Qué ver, qué hacer, cuándo ir, cómo ir, cuánto costará y por qué visitar. Todas las respuestas que estás buscando están aquí. 
                 Aprovecha al máximo tus vacaciones. Consulta nuestras guías turísticas pueblo a pueblo. Consulta nuestras guías para visitar la Vera en cada una de las estaciones del año. 
                 Te ayudaremos a diseñar un viaje que sorprenda a tu pareja, tu familia o tus amigos. Tenemos las mejores actividades que puedes realizar en la Vera.
                 Los mejores paraísos, los mejores rincones, restaurantes, museos, bares, fiestas y discotecas. El ocio, la cultura y la naturaleza de la Vera a un click.</h4>
-            <h4 style="text-align: center"><span>¡Gratis!</span></h4>
-            </article>
-        <article>
-            <h3>ÚLTIMOS <span>POSTS</span></h3>
-            <h5>Lo último de lo último. La información más actualizada sobre la comarca de la Vera para que no te pierdas nada. No solo hemos recopilado todo lo que necesitas saber sobre la comarca de la Vera. Si no que además seguimos trabajando para mantenerlo al día, con las últimas novedades.</h5>
-            <app-grid [posts]="updatedPosts"></app-grid>
         </article>
-    </div>
-    <aside></aside>
-</section>
+    </section>
+</main>
 <footer></footer>
